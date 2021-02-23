@@ -16,32 +16,59 @@ export default class CreateRoomPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      guestCanPause: true,
-      votesToSkip: this.defaultVotes,
+        Equipe1: "",
+        Equipe2: "",
     };
 
+    this.HandleRoomButtonPressed = this.HandleRoomButtonPressed.bind(this);
+    this.Equipe1Change = this.Equipe1Change.bind(this);
+    this.Equipe2Change = this.Equipe2Change.bind(this);
+  }
+
+  Equipe1Change(e) {
+    this.setState({
+      Equipe1: e.target.value,
+    });
+  }
+
+  Equipe2Change(e) {
+    this.setState({
+      Equipe2: e.target.value,
+    });
+  }
+
+  HandleRoomButtonPressed() {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+          equipeA: this.state.Equipe1,
+          equipeB: this.state.Equipe2,
+      }),
+    };
+    fetch('/api/create-room', requestOptions).then((response) => 
+    response.json()
+    ).then((data) => console.log(data));
   }
 
   render() {
     return (
         <div id="SoireeCreateParent">
-            <p id="SoireeCreateText">Bienvenue dans Rap jeu,
-            Veuillez désignez celui votre animateur 
-            ainsi que le noms des deux équipes
+            <p id="SoireeCreateText">Mode Soirée<br/> Choisissez votre Mehdi Maizi puis insérez le nom des deux équipes
             </p>
             <FormControl>
-                <TextField required={true} type="text"/>
+                <TextField required={true} type="text" onChange={this.Equipe1Change} />
                 <FormHelperText>
                     <div id="Equi1" align="center">EQUIPE 1</div>
                 </FormHelperText>
             </FormControl>
             <FormControl>
-                <TextField required={true} type="text" />
+                <TextField required={true} type="text" onChange={this.Equipe2Change} />
                 <FormHelperText>
                     <div id="Equi2" align="center">EQUIPE 2</div>
                 </FormHelperText>
             </FormControl>
-            <Button id="buttonSoireeCreate">LANCER</Button>
+            <Button id="buttonSoireeCreate" onClick={this.HandleRoomButtonPressed} >LANCER</Button>
         </div> 
     );
   }
