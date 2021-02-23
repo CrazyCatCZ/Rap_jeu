@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* grid config: 3 main element */
+
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 0.15fr 1.5fr 0.15fr;
+    grid-template-areas: 
+        "nav"
+        "main"
+        "footer";
+}
+
+#nav {
+    grid-area:nav;
+}
+
+#main {
+    grid-area:main;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+footer {
+    background: #ffff18;
+    grid-area:footer;
+}
+
+/* nav config */
+
+li, a {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    background: #2704c4;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #7b34ff;
+}
+
+.cta {
+    transition: all 0.3s ease 0s;
+}
+
+.cta:hover {
+    color: #7b34ff;
+}
+
+/* animation JOUER + Nav */
+
+@keyframes colorNav {
+    0%  {background-color: #073980;}
+    50% {background-color: #6635b6;}
+    100%  {background-color: #073980;}
+}
+
+.navbarcolor {
+    animation-name: colorNav;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shimmy {
+    0% {
+      transform: translate(0, 0) rotateZ(20deg);    
+    }
+  
+    100% {
+      transform: translate(-45px);
+    }
+  }
+
+.movejouerdroite {
+    animation: shimmy 1s;
+    animation-direction: reverse;
+    transform: rotateZ(20deg);
+}
+
+@keyframes shimmyBis {
+    0% {
+      transform: translate(0, 0) rotateZ(-20deg);    
+    }
+  
+    100% {
+      transform: translate(45px);
+    }
+  }
+
+.movejouergauche {
+    animation: shimmyBis 1s;
+    animation-direction: reverse;
+    transform: rotateZ(-20deg);
+}
+
+#faceSup {
+    cursor: pointer;
+}
+
+#faceInf {
+    display: none;
+}
+
+@keyframes moveMiddle {
+    0% {
+        left: 0%;
+    }
+    100% {
+        left: 46.5%;
+    }
+}
+
+.logoMovemiddle {
+    position: relative;
+    animation-name: moveMiddle;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes jouerFlote {
+    0% {
+      transform: translateY(12px);
+    }
+    100% {
+      transform: translateY(-17px);
+    }
+  }
+
+#jouerEntier {
+    animation: jouerFlote 3s infinite;
+    animation-direction: alternate;
+}
+
+/* Create Soiree Room */
+
+@keyframes fondRadient {
+    0% {
+        box-shadow: 7px 7px rgb(239, 255, 14);
+    }
+    100% {
+        box-shadow: 3px 3px rgb(245, 4, 4);
+    }
+  }
+
+#SoireeCreateText {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    background: rgb(44, 44, 221);
+    padding: 5px;
+    max-width: 290px;
+    height: 220px;
+    text-align: center;
+    animation: fondRadient 2.3s infinite;
+    animation-direction: alternate;
+    margin-bottom: 20px;
+}
+
+#SoireeCreateParent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+
+
+
+

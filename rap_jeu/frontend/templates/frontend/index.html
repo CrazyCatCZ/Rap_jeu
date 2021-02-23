@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rap Jeu</title>
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbarcolor" id="nav">
+        <img id="logoRapjeu" width="50" height="50" class="logo" src="{% static "images/Entrée_intro_du_jeu.svg" %}" alt="logo">
+        <nav id="QSN">
+            <ul class="nav_links">
+                <li><a href="#">QUI SOMMES NOUS</a></li>
+            </ul>
+        </nav>
+        <div id="navContact"><a class="cta" href="#">CONTACT</a></div>
+      </div>
+      <div id="main">
+        <div id="app"></div>
+        <div id="faceInf">
+            <img id="jouerGauche" class="movejouergauche" width="200" height="210"  src="{% static "images/jouer_final_gauche.svg" %}">
+            <img id="jouerDroite" class="movejouerdroite" width="200" height="210"  src="{% static "images/jouer_final_droite.svg" %}">
+        </div>
+        <div id="app"></div>
+        <div id="faceSup"><img id="jouerEntier" class="" width="280" height="290"  src="{% static "images/jouer_entier.svg" %}"></div>
+      </div>
+      <footer></footer>
+    </div>
+    <script src="{% static "frontend/main.js" %}"></script>
+  </body>
+</html>
