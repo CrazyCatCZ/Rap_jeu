@@ -32,15 +32,16 @@ export default class CreateRoomPage extends Component {
             <FormControl>
                 <TextField required={true} type="text"/>
                 <FormHelperText>
-                    <div id="Equi1" align="center">Equipe 1</div>
+                    <div id="Equi1" align="center">EQUIPE 1</div>
                 </FormHelperText>
             </FormControl>
             <FormControl>
                 <TextField required={true} type="text" />
                 <FormHelperText>
-                    <div id="Equi2" align="center">Equipe 2</div>
+                    <div id="Equi2" align="center">EQUIPE 2</div>
                 </FormHelperText>
             </FormControl>
+            <Button id="buttonSoireeCreate">LANCER</Button>
         </div> 
     );
   }

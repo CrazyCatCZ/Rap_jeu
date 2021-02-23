@@ -189,7 +189,7 @@ li, a {
     max-width: 290px;
     height: 190px;
     text-align: center;
-    animation: fondRadient 2.3s infinite;
+    animation: fondRadient 1.7s infinite;
     animation-direction: alternate;
     margin-bottom: 20px;
 }
@@ -209,6 +209,15 @@ li, a {
 
 #Equi2 {
     color: black;
+    font-family: "Raleway", sans-serif;
+    margin-bottom: 15px;
+}
+
+#buttonSoireeCreate {
+    background: rgb(13, 13, 223);
+    animation: fondRadient 1.7s infinite;
+    animation-direction: alternate;
+    color: white;
     font-family: "Raleway", sans-serif;
 }
 
