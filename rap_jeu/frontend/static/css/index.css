@@ -187,7 +187,7 @@ li, a {
     background: rgb(44, 44, 221);
     padding: 5px;
     max-width: 290px;
-    height: 220px;
+    height: 190px;
     text-align: center;
     animation: fondRadient 2.3s infinite;
     animation-direction: alternate;
@@ -200,6 +200,16 @@ li, a {
     justify-content: center;
     align-items: center;
     align-content: center;
+}
+
+#Equi1 {
+    color: black;
+    font-family: "Raleway", sans-serif;
+}
+
+#Equi2 {
+    color: black;
+    font-family: "Raleway", sans-serif;
 }
 
 
