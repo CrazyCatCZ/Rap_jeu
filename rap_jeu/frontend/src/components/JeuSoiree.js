@@ -52,7 +52,7 @@ export default class JeuSoiree extends Component {
                     <p id="NomEquip1">{this.state.equipe1.toUpperCase()}<br/><p id="point1Soiree">{this.state.point1.toString()} POINTS</p></p>
                 </div>    
                 <div id="jauge_droite">
-                    yeah
+                    <p id="NomEquip2">{this.state.equipe2.toUpperCase()}<br/><p id="point2Soiree">{this.state.point2.toString()} POINTS</p></p>
                 </div>
             </div>
             <div id="Mehdi_button">
