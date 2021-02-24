@@ -221,6 +221,41 @@ li, a {
     font-family: "Raleway", sans-serif;
 }
 
+/* Jeusoiree */
+
+#JeuSoireeDivParent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#Mehdi_button {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    align-content: center;
+}
+
+#buttonSoireePointAttrib1 {
+    background: rgb(13, 13, 223);
+    animation: fondRadient 1.7s infinite;
+    animation-direction: alternate;
+    color: white;
+    font-family: "Raleway", sans-serif;
+    max-width: 100px;
+}
+
+#buttonSoireePointAttrib2 {
+    background: rgb(13, 13, 223);
+    animation: fondRadient 1.7s infinite;
+    animation-direction: alternate;
+    color: white;
+    font-family: "Raleway", sans-serif;
+    max-width: 100px;
+}
 
 
 

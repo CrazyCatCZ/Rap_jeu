@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import mehdiBase from "../../static/images/mehdi_main_dans_le_dos_neutre.svg"
+import Button from "@material-ui/core/Button";
 
 export default class JeuSoiree extends Component {
     constructor(props) {
@@ -40,12 +42,16 @@ export default class JeuSoiree extends Component {
 
     render() {
         return (
-        <div>
-            <p>Equipe: {this.state.equipe1}</p>
-            <p>Equipe: {this.state.equipe2}</p>
-            <p>point1: {this.state.point1}</p>
-            <p>point2: {this.state.point2}</p>
-            <p>NbQuestion: {this.state.NbQuestion}</p>
+        <div id="JeuSoireeDivParent">
+            <div id="Jauge">Jauge</div>
+            <div id="Mehdi_button">
+                <Button id="buttonSoireePointAttrib1">Point Equipe {this.state.equipe1}</Button>
+                <img src={mehdiBase} width="250" height="200"/>
+                <Button id="buttonSoireePointAttrib2">Point equipe {this.state.equipe2}</Button>
+            </div>
+            <div id="Text_Soiree">Text mehdi</div>
+            <div id="Voir_repSoiree">Button Voir Rep</div>
+            <div id="QuestionSoiree">Question</div>
         </div>
         );
     }
