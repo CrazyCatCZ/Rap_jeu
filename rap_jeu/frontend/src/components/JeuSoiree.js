@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import mehdiBase from "../../static/images/mehdi_main_dans_le_dos_neutre.svg"
+import jauge_droite from "../../static/images/jauge_droite.svg"
+import jauge_gauche from "../../static/images/jauge_gauche.svg"
 import Button from "@material-ui/core/Button";
 
 export default class JeuSoiree extends Component {
@@ -21,6 +23,8 @@ export default class JeuSoiree extends Component {
         document.querySelector("#navContact").style.display = "none";
         document.querySelector("#nav").style.justifyContent = "center";
         document.querySelector("#app").style.display = "block"; 
+        document.querySelector("#app").style.width = "100%";
+        document.querySelector("#app").style.height = "100%";
         setTimeout(function() {
             document.querySelector("#app").style.display = "block"; 
         }, 1000);
@@ -43,14 +47,21 @@ export default class JeuSoiree extends Component {
     render() {
         return (
         <div id="JeuSoireeDivParent">
-            <div id="Jauge">Jauge</div>
-            <div id="Mehdi_button">
-                <Button id="buttonSoireePointAttrib1">Point Equipe {this.state.equipe1}</Button>
-                <img src={mehdiBase} width="250" height="200"/>
-                <Button id="buttonSoireePointAttrib2">Point equipe {this.state.equipe2}</Button>
+            <div id="Jauge">
+                <div id="jauge_gauche">
+                    <p id="NomEquip1">{this.state.equipe1.toUpperCase()}</p>
+                </div>    
+                <div id="jauge_droite">
+                    yeah
+                </div>
             </div>
-            <div id="Text_Soiree">Text mehdi</div>
-            <div id="Voir_repSoiree">Button Voir Rep</div>
+            <div id="Mehdi_button">
+                <Button id="buttonSoireePointAttrib1">Attribuer Point Equipe {this.state.equipe1}</Button>
+                <img src={mehdiBase} width="200" height="210"/>
+                <Button id="buttonSoireePointAttrib2">Attribuer Point equipe {this.state.equipe2}</Button>
+            </div>
+            <p id="Text_Soiree">Text mehdi</p>
+            <Button id="Voir_repSoiree">Afficher Réponse</Button>
             <div id="QuestionSoiree">Question</div>
         </div>
         );

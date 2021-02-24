@@ -6,7 +6,7 @@
     padding: 0;
 }
 
-/* grid config: 3 main element */
+/* grid config: 3 main element + app */
 
 .container {
     display: grid;
@@ -35,6 +35,7 @@ footer {
     background: #ffff18;
     grid-area:footer;
 }
+
 
 /* nav config */
 
@@ -226,15 +227,16 @@ li, a {
 #JeuSoireeDivParent {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     align-content: center;
+    height: 100%;
 }
 
 #Mehdi_button {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content:space-around;
     align-items: center;
     align-content: center;
 }
@@ -255,6 +257,74 @@ li, a {
     color: white;
     font-family: "Raleway", sans-serif;
     max-width: 100px;
+}
+
+#Jauge {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+
+#jauge_gauche {
+    background-image: url(../images/jauge_gauche.svg);
+    width: 300px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    align-content: left;
+}
+
+#NomEquip1 {
+    height: 37px;
+    padding-bottom: 7px;
+    margin-left: 10px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 1.2px;
+    -webkit-text-stroke-color: black;
+}
+
+#jauge_droite {
+    background-image: url(../images/jauge_droite.svg);
+    width: 300px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#Text_Soiree {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    background: rgb(250, 218, 38);
+    padding: 5px;
+    width: 250px;
+    max-width: 250px;
+    height: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#Voir_repSoiree {
+    background: rgb(252, 12, 12);
+    animation: fondRadient 1.7s infinite;
+    animation-direction: alternate;
+    color: white;
+    font-family: "Raleway", sans-serif;
+    max-width: 120px;
+    height: 30px;
+    font-weight: 500;
+    font-size: 10px;
 }
 
 
