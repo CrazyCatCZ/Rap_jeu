@@ -18,6 +18,7 @@ export default class CreateRoomPage extends Component {
     this.state = {
         Equipe1: "",
         Equipe2: "",
+        error: "",
     };
 
     this.HandleRoomButtonPressed = this.HandleRoomButtonPressed.bind(this);
@@ -38,6 +39,13 @@ export default class CreateRoomPage extends Component {
   }
 
   HandleRoomButtonPressed() {
+    if (this.state.Equipe1 === "" || this.state.Equipe2 === "") {
+      this.setState({
+        error: "Le nom d'équipe doit être remplie et de moin de 15 lettres",
+      })
+      console.log('error');
+      return;
+    }
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -46,9 +54,9 @@ export default class CreateRoomPage extends Component {
           equipeB: this.state.Equipe2,
       }),
     };
-    fetch('/api/create-room', requestOptions).then((response) => 
-    response.json()
-    ).then((data) => this.props.history.push("/Soiree/" + data.code));
+    fetch("/api/create-room", requestOptions)
+      .then((response) => response.json())
+      .then((data) => this.props.history.push("/Soiree/" + data.code));
   }
 
   render() {

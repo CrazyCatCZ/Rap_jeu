@@ -60,9 +60,9 @@ export default class JeuSoiree extends Component {
                 <img src={mehdiBase} width="200" height="210"/>
                 <Button id="buttonSoireePointAttrib2">Attribuer Point equipe {this.state.equipe2}</Button>
             </div>
-            <p id="Text_Soiree">Text mehdi</p>
+            <p id="Text_Soiree">Bienvenu dans Rap Jeu, C'est déja mon Rap Jeu Préféré</p>
             <Button id="Voir_repSoiree">Afficher Réponse</Button>
-            <div id="QuestionSoiree">Question</div>
+            <div id="QuestionSoiree"><p id="TextJaugeQuestionSoiree">HFHFDLKGH IHGIDHG  OUF OSDU IFHSIFH SIF H F H </p></div>
         </div>
         );
     }
