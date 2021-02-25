@@ -56,9 +56,9 @@ export default class JeuSoiree extends Component {
                 </div>
             </div>
             <div id="Mehdi_button">
-                <Button id="buttonSoireePointAttrib1">Attribuer Point Equipe {this.state.equipe1}</Button>
+                <Button id="buttonSoireePointAttrib1">+ 1 Equipe {this.state.equipe1}</Button>
                 <img src={mehdiBase} width="200" height="210"/>
-                <Button id="buttonSoireePointAttrib2">Attribuer Point equipe {this.state.equipe2}</Button>
+                <Button id="buttonSoireePointAttrib2">+ 1 Equipe {this.state.equipe2}</Button>
             </div>
             <p id="Text_Soiree">Bienvenu dans Rap Jeu, C'est déja mon Rap Jeu Préféré</p>
             <Button id="Voir_repSoiree">Afficher Réponse</Button>

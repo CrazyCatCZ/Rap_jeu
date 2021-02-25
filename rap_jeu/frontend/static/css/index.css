@@ -20,6 +20,7 @@
 
 #nav {
     grid-area:nav;
+    display: flex;
 }
 
 #main {
@@ -34,6 +35,8 @@
 footer {
     background: #ffff18;
     grid-area:footer;
+    display: flex;
+    min-height: 35px;
 }
 
 
@@ -407,6 +410,7 @@ li, a {
     height: 15px;
     font-weight: 500;
     font-size: 10px;
+    display: none;
 }
 
 #QuestionSoiree {
