@@ -11,19 +11,20 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 export default class CreateRoomPage extends Component {
-  defaultVotes = 2;
 
   constructor(props) {
     super(props);
     this.state = {
         Equipe1: "",
         Equipe2: "",
-        error: "",
     };
 
     this.HandleRoomButtonPressed = this.HandleRoomButtonPressed.bind(this);
     this.Equipe1Change = this.Equipe1Change.bind(this);
     this.Equipe2Change = this.Equipe2Change.bind(this);
+    // init page accueil
+    document.querySelector("#app").style.width = "";
+    document.querySelector("#app").style.height = "";
   }
 
   Equipe1Change(e) {
@@ -40,12 +41,17 @@ export default class CreateRoomPage extends Component {
 
   HandleRoomButtonPressed() {
     if (this.state.Equipe1 === "" || this.state.Equipe2 === "") {
-      this.setState({
-        error: "Le nom d'équipe doit être remplie et de moin de 15 lettres",
-      })
+      document.querySelector("#texterrorMess").innerHTML = "Les noms d'équipes sont soient trop grands soit inexistants, fait un effort frrrr";
       console.log('error');
       return;
     }
+
+    if (this.state.Equipe1.length > 15 || this.state.Equipe2.length > 15) {
+      document.querySelector("#texterrorMess").innerHTML = "Les noms d'équipes sont soient trop grands soit inexistants, fait un effort frrrr";
+      console.log('error');
+      return;
+    }
+
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -77,6 +83,7 @@ export default class CreateRoomPage extends Component {
                 </FormHelperText>
             </FormControl>
             <Button id="buttonSoireeCreate" onClick={this.HandleRoomButtonPressed} >LANCER</Button>
+            <div id="errorMess"><p id="texterrorMess"></p></div>
         </div> 
     );
   }
