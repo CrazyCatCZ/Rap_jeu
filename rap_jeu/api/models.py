@@ -12,6 +12,7 @@ class Questions(models.Model):
     choix2 = models.CharField(max_length=1000, default="", unique=False)
     choix3 = models.CharField(max_length=1000, default="", unique=False)
     choix4 = models.CharField(max_length=1000, default="", unique=False)
+    musique = models.FileField(blank=True)
 
 def generate_unique_code():
     length = 6
@@ -27,8 +28,8 @@ def generate_unique_code():
 class Room(models.Model):
     code = models.CharField(max_length=8, default=generate_unique_code, unique=True)
     host = models.CharField(max_length=50, unique=True, default="")
-    equipeA = models.CharField(max_length=16, unique=False)
-    equipeB = models.CharField(max_length=16, unique=False)
+    equipeA = models.CharField(max_length=27, unique=False)
+    equipeB = models.CharField(max_length=27, unique=False)
     pointA = models.IntegerField(null=False, default=0)
     pointB = models.IntegerField(null=False, default=0)
     nbQuestion = models.IntegerField(null=False, default=1)

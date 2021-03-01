@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="bare_du_bas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 1281 150" style="enable-background:new 0 0 1281 150;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F6FD39;}
+	.st1{fill:url(#SVGID_1_);}
+	.st2{fill:url(#SVGID_2_);}
+</style>
+<g>
+	<title>barre du bas</title>
+	<polygon class="st0" points="1230.5,134.5 51.5,134.5 27,70 198,70 214,25 303,25 309,15 966,15 971,24 1060,24 1080.8,70 1255,70 
+			"/>
+	
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="640.5" y1="78" x2="640.5" y2="134" gradientTransform="matrix(-1 0 0 1 1281 -2)">
+		<stop  offset="0" style="stop-color:#F3BA33"/>
+		<stop  offset="0.1" style="stop-color:#F4C13C"/>
+		<stop  offset="0.46" style="stop-color:#F7D758"/>
+		<stop  offset="0.77" style="stop-color:#F8E469"/>
+		<stop  offset="1" style="stop-color:#F9E96F"/>
+	</linearGradient>
+	<polygon class="st1" points="1247,76 1226,132 54,130 34,76 	"/>
+	
+		<radialGradient id="SVGID_2_" cx="640" cy="46" r="310.9638" gradientTransform="matrix(-1 0 0 1 1281 -2)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#8ABBDD"/>
+		<stop  offset="3.000000e-02" style="stop-color:#80AFDA"/>
+		<stop  offset="0.14" style="stop-color:#5E85CE"/>
+		<stop  offset="0.25" style="stop-color:#4161C4"/>
+		<stop  offset="0.37" style="stop-color:#2944BC"/>
+		<stop  offset="0.5" style="stop-color:#172DB6"/>
+		<stop  offset="0.64" style="stop-color:#0A1DB1"/>
+		<stop  offset="0.79" style="stop-color:#0214AF"/>
+		<stop  offset="1" style="stop-color:#0011AE"/>
+	</radialGradient>
+	<polygon class="st2" points="1080,70 202,70 217,27 306,27 311,18 966,18 970,27 1060,27 	"/>
+	
+		<image style="overflow:visible;enable-background:new    ;" width="1281" height="80" xlink:href="A7468EFF.png"  transform="matrix(-1 0 0 -1 1281 126)">
+	</image>
+	
+		<image style="overflow:visible;enable-background:new    ;" width="1250" height="79" xlink:href="A7468EFD.png"  transform="matrix(-1 0 0 -1 1265 165)">
+	</image>
+</g>
+</svg>

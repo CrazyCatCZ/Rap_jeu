@@ -4,7 +4,7 @@ from .models import Questions, Room
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Questions
-        fields = ('id', 'question', 'réponse', 'QuestionType', 'explication', 'choix1', 'choix2', 'choix3', 'choix4')
+        fields = ('id', 'question', 'réponse', 'QuestionType', 'explication', 'choix1', 'choix2', 'choix3', 'choix4', 'musique')
 
 class RoomSerializer(serializers.ModelSerializer):
     class Meta:

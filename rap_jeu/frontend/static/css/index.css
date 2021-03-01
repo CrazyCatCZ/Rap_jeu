@@ -407,8 +407,8 @@ li, a {
     color: rgb(0, 0, 0);
     box-shadow: 3px 3px rgb(251, 255, 6);
     padding: 5px;
-    max-width: 400px;
-    height: 70px;
+    max-width: 550px;
+    max-height: 90px;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -427,7 +427,7 @@ li, a {
 }
 
 #QuestionSoiree {
-    background-image: url(../images/jauge_question.svg);
+    background-image: url(../images/jauge_question_rotate.svg);
     width: 1100px;
     height: 150px;
     background-repeat: no-repeat;
