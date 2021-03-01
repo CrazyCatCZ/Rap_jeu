@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from rest_framework import generics, status
-from .serializers import QuestionSerializer, CreateRoomSerializer, RoomSerializer
+from .serializers import QuestionSerializer, CreateRoomSerializer, RoomSerializer, PointRoomSerializer
 from .models import Questions, Room
 from rest_framework.views import APIView
 from rest_framework.response import Response
+import random
 
 # Create your views here.
 
@@ -43,6 +44,32 @@ class CreateRoomView(APIView):
 
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
 
+
+
+class PointRoomView(APIView):
+    serializer_class = PointRoomSerializer
+
+    def post(self, request, format=None):
+
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            pointA = serializer.data.get('pointA')
+            pointB = serializer.data.get('pointB')
+            host = self.request.session.session_key
+            queryset = Room.objects.filter(host=host)
+            if queryset.exists():
+                room = queryset[0]
+                room.pointA = pointA
+                room.pointB = pointB
+                room.nbQuestion = 0
+                room.save(update_fields=['pointA', 'pointB', 'nbQuestion'])
+                self.request.session['room_code'] = room.code
+                return Response(RoomSerializer(room).data, status=status.HTTP_200_OK)
+
+        return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+
 class ReprendrePartieView(APIView):
     def post(self, request, format=None):
         if self.request.session.exists(self.request.session.session_key):
@@ -71,5 +98,16 @@ class GetRoom(APIView):
             return Response({'Room Not Found': 'Invalid Room Code.'}, status=status.HTTP_404_NOT_FOUND)
 
         return Response({'Bad Request': 'Code paramater not found in request'}, status=status.HTTP_400_BAD_REQUEST)
-
-
+    
+class GetQuestions(APIView):
+    serializer_class = QuestionSerializer
+    QuestionsRequest = Questions.objects.all()
+    limRandom = len(QuestionsRequest)
+    RandomNumQuestion = random.randint(1, limRandom)
+    MysteryNum = [6, 7]
+    print(RandomNumQuestion)
+    
+    def get(self, request, format=None):
+        question = Questions.objects.filter(id=self.RandomNumQuestion).exclude(QuestionType__in=self.MysteryNum)
+        data = QuestionSerializer(question[0]).data
+        return Response(data, status=status.HTTP_200_OK)

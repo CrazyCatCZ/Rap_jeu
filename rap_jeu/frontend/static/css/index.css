@@ -246,7 +246,7 @@ li, a {
 }
 
 #Mehdi_button {
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content:space-around;
     align-items: center;
@@ -403,12 +403,12 @@ li, a {
 #Text_Soiree {
     font-family: "Raleway", sans-serif;
     font-weight: 500;
-    font-size: 19px;
+    font-size: 17.2px;
     color: rgb(0, 0, 0);
     box-shadow: 3px 3px rgb(251, 255, 6);
     padding: 5px;
     max-width: 550px;
-    max-height: 90px;
+    max-height: 100px;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -420,16 +420,30 @@ li, a {
     color: white;
     font-family: "Raleway", sans-serif;
     max-width: 120px;
-    height: 15px;
+    height: 20px;
     font-weight: 500;
     font-size: 10px;
     display: none;
+    padding-bottom: 10px;
 }
+
+#Lancer_Reprendre_Partie {
+    background: rgb(61, 11, 240);
+    animation: fondRadient 1.7s infinite;
+    animation-direction: alternate;
+    color: white;
+    font-family: "Raleway", sans-serif;
+    width: 350px;
+    height: 150px;
+    font-weight: 500;
+    font-size: 27px;
+    display: block;
+} 
 
 #QuestionSoiree {
     background-image: url(../images/jauge_question_rotate.svg);
     width: 1100px;
-    height: 150px;
+    height: 138px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: flex;

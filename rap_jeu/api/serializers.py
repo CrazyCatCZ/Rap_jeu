@@ -6,6 +6,7 @@ class QuestionSerializer(serializers.ModelSerializer):
         model = Questions
         fields = ('id', 'question', 'réponse', 'QuestionType', 'explication', 'choix1', 'choix2', 'choix3', 'choix4', 'musique')
 
+
 class RoomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Room
@@ -16,3 +17,8 @@ class CreateRoomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Room
         fields = ('equipeA', 'equipeB')
+
+class PointRoomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Room
+        fields = ('pointA', 'pointB')
