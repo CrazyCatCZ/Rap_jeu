@@ -17,9 +17,11 @@ export default class CreateRoomPage extends Component {
     this.state = {
         Equipe1: "",
         Equipe2: "",
+        error: "",
     };
 
     this.HandleRoomButtonPressed = this.HandleRoomButtonPressed.bind(this);
+    this.ReprendrePartie = this.ReprendrePartie.bind(this);
     this.Equipe1Change = this.Equipe1Change.bind(this);
     this.Equipe2Change = this.Equipe2Change.bind(this);
     // init page accueil
@@ -65,10 +67,31 @@ export default class CreateRoomPage extends Component {
       .then((data) => this.props.history.push("/Soiree/" + data.code));
   }
 
+  ReprendrePartie() {
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+      }),
+    };
+    fetch("/api/reprendre-room", requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.code === undefined) {
+          console.log("erreurzer");
+          document.querySelector("#texterrorMess").innerHTML = "Aucune Partie En Cours";
+        } else {
+          console.log("ok");
+          this.props.history.push("/Soiree/" + data.code);
+        }
+      });
+  }
+
   render() {
     return (
         <div id="SoireeCreateParent">
-            <p id="SoireeCreateText">Mode Soirée<br/> Choisissez votre Mehdi Maizi puis insérez le nom des deux équipes
+            <p id="SoireeCreateText">Mode Soirée<br/> Ce mode se joue à la manière d'un picolo:<br/> choisissez un animateur et formez deux équipes
             </p>
             <FormControl>
                 <TextField required={true} type="text" onChange={this.Equipe1Change} />
@@ -82,7 +105,8 @@ export default class CreateRoomPage extends Component {
                     <div id="Equi2" align="center">EQUIPE 2</div>
                 </FormHelperText>
             </FormControl>
-            <Button id="buttonSoireeCreate" onClick={this.HandleRoomButtonPressed} >LANCER</Button>
+            <Button id="buttonSoireeCreate" onClick={this.HandleRoomButtonPressed} >Nouvelle Partie</Button>
+            <Button id="buttonSoireeReprendre" onClick={this.ReprendrePartie} >Reprendre Partie En Cours</Button>
             <div id="errorMess"><p id="texterrorMess"></p></div>
         </div> 
     );
