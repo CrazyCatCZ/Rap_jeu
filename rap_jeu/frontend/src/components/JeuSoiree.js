@@ -69,43 +69,27 @@ export default class JeuSoiree extends Component {
     }
 
     Intro() {
-        $("#Text_Soiree").addClass("tracking-in-expand");
-        document.querySelector("#Text_Soiree").innerHTML = "BIENVENU DANS RAP JEU !";
-        setTimeout(function() {
-            $("#Text_Soiree").removeClass("tracking-in-expand");
-        }, 1800);
         
+        document.querySelector("#Text_Soiree").innerHTML = "BIENVENU DANS RAP JEU !";
 
         setTimeout(function() {
-            $("#Text_Soiree").addClass("tracking-in-expand");
             document.querySelector("#Text_Soiree").innerHTML = "LE MEILLEUR JEU DE RAP AU MONDE JUSQU'A PREUVE DU CONTRAIRE"; 
         }, 3500);
-        setTimeout(function() {
-            $("#Text_Soiree").removeClass("tracking-in-expand");
-        }, 4900);
 
         setTimeout(
             function() {
-                $("#Text_Soiree").addClass("tracking-in-expand");
                 document.querySelector("#Text_Soiree").innerHTML = `AJOURD'HUI LES ${this.state.equipe1.toUpperCase()} AFFRONTES LES ${this.state.equipe2.toUpperCase()}`;
             }
             .bind(this),
             7000
         );
-        setTimeout(function() {
-            $("#Text_Soiree").removeClass("tracking-in-expand");
-        }, 8900);
 
         setTimeout(function() {
             document.querySelector("#MehdiImg").src = `${mehdiCarteNeutre}`;
         }, 11000);
         setTimeout(function() {
-            $("#Text_Soiree").addClass("tracking-in-expand");
             document.querySelector("#Text_Soiree").innerHTML = "C'EST PARTIE PREMIERE QUESTIONS !"; 
         }, 11000);
-        setTimeout(function() {
-            $("#Text_Soiree").removeClass("tracking-in-expand");
-        }, 13900);
 
         setTimeout(
             function() {
@@ -118,16 +102,26 @@ export default class JeuSoiree extends Component {
     }
 
     DeclencheQuestions() {
+        $("#Text_Soiree").addClass("tracking-in-expand");
+        $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
         document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.question}`;
         document.querySelector("#Text_Soiree").innerHTML = `${this.state.explication}`;
-        document.querySelector("#Voir_repSoiree").style.display = "block"; 
+        document.querySelector("#Voir_repSoiree").style.display = "block";
+        setTimeout(function() {
+            $("#Text_Soiree").removeClass("tracking-in-expand");
+            $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
+        }, 2000); 
     }
 
     DeclencheVoirRep() {
+        $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
         document.querySelector("#Voir_repSoiree").style.display = "none"; 
         document.querySelector("#buttonSoireePointAttrib1").style.display = "block"; 
         document.querySelector("#buttonSoireePointAttrib2").style.display = "block"; 
         document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.réponse}`;
+        setTimeout(function() {
+            $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
+        }, 2000);
     }
 
     Point1Change() {
