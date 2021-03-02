@@ -8,7 +8,7 @@ import random
 
 # Create your views here.
 
-class QuestionView(generics.CreateAPIView):
+class QuestionView(generics.ListAPIView):
     queryset = Questions.objects.all()
     serializer_class = QuestionSerializer
 
@@ -100,14 +100,19 @@ class GetRoom(APIView):
         return Response({'Bad Request': 'Code paramater not found in request'}, status=status.HTTP_400_BAD_REQUEST)
     
 class GetQuestions(APIView):
-    serializer_class = QuestionSerializer
-    QuestionsRequest = Questions.objects.all()
-    limRandom = len(QuestionsRequest)
-    RandomNumQuestion = random.randint(1, limRandom)
-    MysteryNum = [6, 7]
-    print(RandomNumQuestion)
+    
     
     def get(self, request, format=None):
-        question = Questions.objects.filter(id=self.RandomNumQuestion).exclude(QuestionType__in=self.MysteryNum)
+        serializer_class = QuestionSerializer
+        QuestionsRequest = Questions.objects.all()
+        limRandom = len(QuestionsRequest)
+        MysteryNum = [6, 7]
+
+        while True:   
+            RandomNumQuestion = random.randint(1, limRandom)
+            question = Questions.objects.filter(id=RandomNumQuestion).exclude(QuestionType__in=MysteryNum)
+            if len(question) > 0:
+                break
+
         data = QuestionSerializer(question[0]).data
         return Response(data, status=status.HTTP_200_OK)

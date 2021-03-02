@@ -198,15 +198,10 @@ export default class JeuSoiree extends Component {
                 choix3: data.choix3,
                 choix4: data.choix4,
                 musique: data.musique,
-            })
-            setTimeout(
-                function() {
-                    console.log(this.state.réponse);
-                    this.DeclencheQuestions()
-                }
-                .bind(this),
-                1000
-            );
+            }, () => {
+                console.log(data.réponse);
+                this.DeclencheQuestions();
+            });
         });
     }
 
