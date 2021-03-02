@@ -69,24 +69,43 @@ export default class JeuSoiree extends Component {
     }
 
     Intro() {
+        $("#Text_Soiree").addClass("tracking-in-expand");
         document.querySelector("#Text_Soiree").innerHTML = "BIENVENU DANS RAP JEU !";
         setTimeout(function() {
-            document.querySelector("#MehdiImg").src = `${mehdiCarteNeutre}`;
-        }, 11000);
+            $("#Text_Soiree").removeClass("tracking-in-expand");
+        }, 1800);
+        
+
         setTimeout(function() {
+            $("#Text_Soiree").addClass("tracking-in-expand");
             document.querySelector("#Text_Soiree").innerHTML = "LE MEILLEUR JEU DE RAP AU MONDE JUSQU'A PREUVE DU CONTRAIRE"; 
         }, 3500);
         setTimeout(function() {
-            document.querySelector("#Text_Soiree").innerHTML = "C'EST PARTIE PREMIERE QUESTIONS !"; 
-        }, 11000);
+            $("#Text_Soiree").removeClass("tracking-in-expand");
+        }, 4900);
 
         setTimeout(
             function() {
+                $("#Text_Soiree").addClass("tracking-in-expand");
                 document.querySelector("#Text_Soiree").innerHTML = `AJOURD'HUI LES ${this.state.equipe1.toUpperCase()} AFFRONTES LES ${this.state.equipe2.toUpperCase()}`;
             }
             .bind(this),
             7000
         );
+        setTimeout(function() {
+            $("#Text_Soiree").removeClass("tracking-in-expand");
+        }, 8900);
+
+        setTimeout(function() {
+            document.querySelector("#MehdiImg").src = `${mehdiCarteNeutre}`;
+        }, 11000);
+        setTimeout(function() {
+            $("#Text_Soiree").addClass("tracking-in-expand");
+            document.querySelector("#Text_Soiree").innerHTML = "C'EST PARTIE PREMIERE QUESTIONS !"; 
+        }, 11000);
+        setTimeout(function() {
+            $("#Text_Soiree").removeClass("tracking-in-expand");
+        }, 13900);
 
         setTimeout(
             function() {
@@ -226,7 +245,7 @@ export default class JeuSoiree extends Component {
 
     render() {
         return (
-        <div id="JeuSoireeDivParent">
+        <div id="JeuSoireeDivParent" class="puff-in-center">
             <div id="Jauge">
                 <div id="jauge_gauche">
                     <p id="NomEquip1">{this.state.equipe1.toUpperCase()}<br/><p id="point1Soiree">{this.state.point1.toString()} POINTS</p></p>

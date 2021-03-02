@@ -21,6 +21,7 @@ export default class CreateRoomPage extends Component {
     };
 
     this.HandleRoomButtonPressed = this.HandleRoomButtonPressed.bind(this);
+    this.BeforeHandleRoomButtonPressed = this.BeforeHandleRoomButtonPressed.bind(this);
     this.ReprendrePartie = this.ReprendrePartie.bind(this);
     this.Equipe1Change = this.Equipe1Change.bind(this);
     this.Equipe2Change = this.Equipe2Change.bind(this);
@@ -41,6 +42,36 @@ export default class CreateRoomPage extends Component {
     });
   }
 
+
+  // anime de passage au jeu 
+
+  BeforeHandleRoomButtonPressed() {
+    if (this.state.Equipe1 === "" || this.state.Equipe2 === "") {
+      document.querySelector("#texterrorMess").innerHTML = "Les noms d'équipes sont soient trop grands soit inexistants, fait un effort frrrr";
+      console.log('error');
+      return;
+    }
+
+    if (this.state.Equipe1.length > 25 || this.state.Equipe2.length > 25) {
+      document.querySelector("#texterrorMess").innerHTML = "Les noms d'équipes sont soient trop grands soit inexistants, fait un effort frrrr";
+      console.log('error');
+      return;
+    }
+
+    $("#SoireeCreateParent").addClass("puff-out-center");
+
+    setTimeout(
+        function() {
+            this.HandleRoomButtonPressed()
+        }
+        .bind(this),
+        1000
+    );
+
+  }
+
+
+
   HandleRoomButtonPressed() {
     if (this.state.Equipe1 === "" || this.state.Equipe2 === "") {
       document.querySelector("#texterrorMess").innerHTML = "Les noms d'équipes sont soient trop grands soit inexistants, fait un effort frrrr";
@@ -48,7 +79,7 @@ export default class CreateRoomPage extends Component {
       return;
     }
 
-    if (this.state.Equipe1.length > 15 || this.state.Equipe2.length > 15) {
+    if (this.state.Equipe1.length > 25 || this.state.Equipe2.length > 25) {
       document.querySelector("#texterrorMess").innerHTML = "Les noms d'équipes sont soient trop grands soit inexistants, fait un effort frrrr";
       console.log('error');
       return;
@@ -82,6 +113,8 @@ export default class CreateRoomPage extends Component {
           console.log("erreurzer");
           document.querySelector("#texterrorMess").innerHTML = "Aucune Partie En Cours";
         } else {
+          document.querySelector("#SoireeCreateParent").style.animation = "Disapear 1s";
+          document.querySelector("#SoireeCreateParent").style.animationFillMode = "forwards";
           console.log("ok");
           this.props.history.push("/Soiree/" + data.code);
         }
@@ -105,7 +138,7 @@ export default class CreateRoomPage extends Component {
                     <div id="Equi2" align="center">EQUIPE 2</div>
                 </FormHelperText>
             </FormControl>
-            <Button id="buttonSoireeCreate" onClick={this.HandleRoomButtonPressed} >Nouvelle Partie</Button>
+            <Button id="buttonSoireeCreate" onClick={this.BeforeHandleRoomButtonPressed} >Nouvelle Partie</Button>
             <Button id="buttonSoireeReprendre" onClick={this.ReprendrePartie} >Reprendre Partie En Cours</Button>
             <div id="errorMess"><p id="texterrorMess"></p></div>
         </div> 
