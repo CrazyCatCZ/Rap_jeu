@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import buzzer from "../../static/images/buzzer_jaune.svg";
+import mircro from "../../static/images/micro_gris.svg";
 
 export default class CreateRoomPage extends Component {
 
@@ -42,6 +44,9 @@ export default class CreateRoomPage extends Component {
     });
   }
 
+  componentDidMount() {
+    $("#SoireeCreateParent").addClass("swing-in-top-fwd");
+  }
 
   // anime de passage au jeu 
 
@@ -58,6 +63,7 @@ export default class CreateRoomPage extends Component {
       return;
     }
 
+    $("#SoireeCreateParent").removeClass("swing-in-top-fwd");
     $("#SoireeCreateParent").addClass("puff-out-center");
 
     setTimeout(
@@ -124,8 +130,16 @@ export default class CreateRoomPage extends Component {
   render() {
     return (
         <div id="SoireeCreateParent">
-            <p id="SoireeCreateText">Mode Soirée<br/> Ce mode se joue à la manière d'un picolo:<br/> choisissez un animateur et formez deux équipes
-            </p>
+            <div id="Contain_text_buzzer_micro">
+              <img src={buzzer} id="buzzer"/>
+              <div id="SoireeCreateText">
+                <h2>RAP JEU</h2>
+                <h2>MODE SOIREE</h2>
+                <p>Ce mode se joue à la manière d'un picolo:<br/> choisissez un animateur et formez deux équipes
+                </p>
+              </div>
+              <img src={mircro} id="micro"/>
+            </div>
             <FormControl>
                 <TextField required={true} type="text" onChange={this.Equipe1Change} />
                 <FormHelperText>
