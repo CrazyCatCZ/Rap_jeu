@@ -52,6 +52,7 @@ export default class JeuSoiree extends Component {
         this.Point1Change = this.Point1Change.bind(this);
         this.Point2Change = this.Point2Change.bind(this);
         this.DeclencheAttribPoint = this.DeclencheAttribPoint.bind(this);
+        this.DeclencheTimer = this.DeclencheTimer.bind(this);
         
     }
 
@@ -64,6 +65,7 @@ export default class JeuSoiree extends Component {
             // a corriger 
             console.log("fini");
         } else {
+            document.querySelector("#MehdiImg").src = `${mehdiCarteNeutre}`;
             this.DeclencheQuestions();
         }
     }
@@ -102,15 +104,32 @@ export default class JeuSoiree extends Component {
     }
 
     DeclencheQuestions() {
-        $("#Text_Soiree").addClass("tracking-in-expand");
-        $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
-        document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.question}`;
-        document.querySelector("#Text_Soiree").innerHTML = `${this.state.explication}`;
-        document.querySelector("#Voir_repSoiree").style.display = "block";
-        setTimeout(function() {
-            $("#Text_Soiree").removeClass("tracking-in-expand");
-            $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
-        }, 2000); 
+        if (this.state.QuestionType === 5) {
+            console.log('enchere');
+            $("#Text_Soiree").addClass("tracking-in-expand");
+            $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
+            document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.question}`;
+            document.querySelector("#Text_Soiree").innerHTML = `${this.state.explication}`;
+            // aficher timer et pas affiche repsoiree
+            document.querySelector("#Timer").style.display = "block";
+            document.querySelector("#Timer").innerHTML = "Lancer Timer";
+            setTimeout(function() {
+                $("#Text_Soiree").removeClass("tracking-in-expand");
+                $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
+            }, 2000); 
+
+
+        } else {
+            $("#Text_Soiree").addClass("tracking-in-expand");
+            $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
+            document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.question}`;
+            document.querySelector("#Text_Soiree").innerHTML = `${this.state.explication}`;
+            document.querySelector("#Voir_repSoiree").style.display = "block";
+            setTimeout(function() {
+                $("#Text_Soiree").removeClass("tracking-in-expand");
+                $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
+            }, 2000); 
+        }
     }
 
     DeclencheVoirRep() {
@@ -122,6 +141,41 @@ export default class JeuSoiree extends Component {
         setTimeout(function() {
             $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
         }, 2000);
+    }
+
+    DeclencheTimer() {
+        $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
+        document.querySelector("#buttonSoireePointAttrib1").style.display = "block"; 
+        document.querySelector("#buttonSoireePointAttrib2").style.display = "block"; 
+        document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.question}`;
+        setTimeout(function() {
+            $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
+        }, 2000);
+
+        document.querySelector("#Timer").style.display = "none";
+        document.querySelector("#p_timer").style.display = "block";
+        
+        // Timer func
+        const startingMinutes = 1;
+        let time = startingMinutes * 60;
+
+        var StopTimer = setInterval(function() {
+            const minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+
+            if (document.querySelector("#Voir_repSoiree").style.display === "none" || seconds > 0) {
+                //hide timer
+                document.querySelector("#PTimer_text").innerHTML = `${seconds}`;
+            }
+
+            if (seconds < 0 || document.querySelector("#Voir_repSoiree").style.display === "block" || document.querySelector("#buttonSoireePointAttrib1").style.display === "none") {
+                //hide timer
+                document.querySelector("#p_timer").style.display = "none";
+                clearInterval(StopTimer);
+            }
+            time--;
+          }, 1000);
+
     }
 
     Point1Change() {
@@ -256,6 +310,8 @@ export default class JeuSoiree extends Component {
             </div>
             <p id="Text_Soiree"></p>
             <Button id="Voir_repSoiree" onClick={this.DeclencheVoirRep}>Afficher Réponse</Button>
+            <Button id="Timer" onClick={this.DeclencheTimer}>Lancer Timer</Button>
+            <div id="p_timer"><p id="PTimer_text"></p></div>
             <div id="QuestionSoiree"><p id="TextJaugeQuestionSoiree"></p></div>
         </div>
         );

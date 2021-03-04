@@ -8,7 +8,7 @@ import random
 
 # Create your views here.
 
-class QuestionView(generics.ListAPIView):
+class QuestionView(generics.CreateAPIView):
     queryset = Questions.objects.all()
     serializer_class = QuestionSerializer
 
