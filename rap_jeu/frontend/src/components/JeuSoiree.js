@@ -114,7 +114,29 @@ export default class JeuSoiree extends Component {
     }
 
     DeclencheQuestions() {
-        if (this.state.QuestionType === 5 && this.state.point1 !== 8 && this.state.point2 !== 9) {
+        if (this.state.NbQuestion === 5) {
+            console.log("carte mystère");
+            document.querySelector("#cartemystereblock").style.display = "block";
+            document.querySelector("#cartepuristeblock").style.display = "block";
+            document.querySelector("#Text_Soiree").innerHTML = `Carte Mystères pour l'équipe ${this.state.equipe1} choisissez entre la carte puriste ou mystère`;
+            
+        } else if (this.state.NbQuestion === 9) {
+            console.log("carte mystère");
+            document.querySelector("#cartemystereblock").style.display = "block";
+            document.querySelector("#cartepuristeblock").style.display = "block";
+            document.querySelector("#Text_Soiree").innerHTML = `Carte Mystères pour l'équipe ${this.state.equipe2} choisissez entre la carte puriste ou mystère`;
+
+        } else if (this.state.NbQuestion === 19) {
+            console.log("carte mystère");
+            document.querySelector("#cartemystereblock").style.display = "block";
+            document.querySelector("#cartepuristeblock").style.display = "block";
+            document.querySelector("#Text_Soiree").innerHTML = `Carte Mystères pour l'équipe ${this.state.equipe1} choisissez entre la carte puriste ou mystère`;
+        } else if (this.state.NbQuestion === 15) {
+            console.log("carte mystère");
+            document.querySelector("#cartemystereblock").style.display = "block";
+            document.querySelector("#cartepuristeblock").style.display = "block";
+            document.querySelector("#Text_Soiree").innerHTML = `Carte Mystères pour l'équipe ${this.state.equipe2} choisissez entre la carte puriste ou mystère`;
+        } else if (this.state.QuestionType === 5) {
             console.log('enchere');
             $("#Text_Soiree").addClass("tracking-in-expand");
             $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
@@ -127,18 +149,6 @@ export default class JeuSoiree extends Component {
                 $("#Text_Soiree").removeClass("tracking-in-expand");
                 $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
             }, 2000); 
-        } else if (this.state.point1 === 8) {
-            console.log("carte mystère");
-            document.querySelector("#cartemystereblock").style.display = "block";
-            document.querySelector("#cartepuristeblock").style.display = "block";
-            document.querySelector("#Text_Soiree").innerHTML = `Carte Mystères pour l'équipe ${this.state.equipe1} choisissez entre la carte puriste ou mystère`;
-            
-        } else if (this.state.point2 === 9) {
-            console.log("carte mystère");
-            document.querySelector("#cartemystereblock").style.display = "block";
-            document.querySelector("#cartepuristeblock").style.display = "block";
-            document.querySelector("#Text_Soiree").innerHTML = `Carte Mystères pour l'équipe ${this.state.equipe2} choisissez entre la carte puriste ou mystère`;
-
         } else {
             $("#Text_Soiree").addClass("tracking-in-expand");
             $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
@@ -166,7 +176,7 @@ export default class JeuSoiree extends Component {
 
 
     NextMystereQuestion() {
-        if (this.state.point1 === 8 && this.state.point2 !== 9) {
+        if (this.state.NbQuestion === 5 || this.state.NbQuestion === 15) {
             if (this.state.choix1 === 'plus') {
                 this.Point1ChangeMystere();
             } else {
@@ -174,8 +184,10 @@ export default class JeuSoiree extends Component {
             }
         } else {
             if (this.state.choix1 === 'plus') {
+                console.log('fonctionne mais bug');
                 this.Point2ChangeMystere();
             } else {
+                console.log('fonctionne mais bug');
                 this.Point2ChangeMystereMoins();
             }
         }
@@ -249,6 +261,7 @@ export default class JeuSoiree extends Component {
     Point1Change() {
         this.setState({
           point1: this.state.point1 + 1,
+          NbQuestion: this.state.NbQuestion + 1,
         });
         document.querySelector("#buttonSoireePointAttrib1").style.display = "none"; 
         document.querySelector("#buttonSoireePointAttrib2").style.display = "none";
@@ -266,6 +279,7 @@ export default class JeuSoiree extends Component {
     Point2Change() {
     this.setState({
         point2: this.state.point2 + 1,
+        NbQuestion: this.state.NbQuestion + 1,
     });
     document.querySelector("#buttonSoireePointAttrib1").style.display = "none"; 
     document.querySelector("#buttonSoireePointAttrib2").style.display = "none";
@@ -284,6 +298,7 @@ export default class JeuSoiree extends Component {
     Point1ChangeMystere() {
         this.setState({
           point1: this.state.point1 + 4,
+          NbQuestion: this.state.NbQuestion + 1,
         });
         document.querySelector("#buttonSoireePointAttrib1").style.display = "none"; 
         document.querySelector("#buttonSoireePointAttrib2").style.display = "none";
@@ -301,6 +316,7 @@ export default class JeuSoiree extends Component {
     Point2ChangeMystere() {
         this.setState({
           point2: this.state.point2 + 4,
+          NbQuestion: this.state.NbQuestion + 1,
         });
         document.querySelector("#buttonSoireePointAttrib1").style.display = "none"; 
         document.querySelector("#buttonSoireePointAttrib2").style.display = "none";
@@ -319,6 +335,7 @@ export default class JeuSoiree extends Component {
     Point1ChangeMystereMoins() {
         this.setState({
           point1: this.state.point1 - 4,
+          NbQuestion: this.state.NbQuestion + 1,
         });
         document.querySelector("#buttonSoireePointAttrib1").style.display = "none"; 
         document.querySelector("#buttonSoireePointAttrib2").style.display = "none";
@@ -336,6 +353,7 @@ export default class JeuSoiree extends Component {
     Point2ChangeMystereMoins() {
         this.setState({
           point2: this.state.point2 - 4,
+          NbQuestion: this.state.NbQuestion + 1,
         });
         document.querySelector("#buttonSoireePointAttrib1").style.display = "none"; 
         document.querySelector("#buttonSoireePointAttrib2").style.display = "none";
@@ -359,6 +377,7 @@ export default class JeuSoiree extends Component {
             body: JSON.stringify({
                 pointA: this.state.point1,
                 pointB: this.state.point2,
+                nbQuestion: this.state.NbQuestion,
             }),
           };
           fetch("/api/post-point", requestOptions)

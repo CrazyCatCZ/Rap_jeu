@@ -21,4 +21,4 @@ class CreateRoomSerializer(serializers.ModelSerializer):
 class PointRoomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Room
-        fields = ('pointA', 'pointB')
+        fields = ('pointA', 'pointB', 'nbQuestion')

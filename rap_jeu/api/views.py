@@ -8,7 +8,7 @@ import random
 
 # Create your views here.
 
-class QuestionView(generics.ListAPIView):
+class QuestionView(generics.CreateAPIView):
     queryset = Questions.objects.all()
     serializer_class = QuestionSerializer
 
@@ -55,13 +55,14 @@ class PointRoomView(APIView):
         if serializer.is_valid():
             pointA = serializer.data.get('pointA')
             pointB = serializer.data.get('pointB')
+            nbQuestion = serializer.data.get('nbQuestion')
             host = self.request.session.session_key
             queryset = Room.objects.filter(host=host)
             if queryset.exists():
                 room = queryset[0]
                 room.pointA = pointA
                 room.pointB = pointB
-                room.nbQuestion = 0
+                room.nbQuestion = nbQuestion
                 room.save(update_fields=['pointA', 'pointB', 'nbQuestion'])
                 self.request.session['room_code'] = room.code
                 return Response(RoomSerializer(room).data, status=status.HTTP_200_OK)
@@ -106,7 +107,7 @@ class GetQuestions(APIView):
         serializer_class = QuestionSerializer
         QuestionsRequest = Questions.objects.all()
         limRandom = len(QuestionsRequest)
-        MysteryNum = [6, 7]
+        MysteryNum = [6, 7, 9]
 
         while True:   
             RandomNumQuestion = random.randint(1, limRandom)
