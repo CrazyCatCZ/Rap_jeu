@@ -703,6 +703,20 @@ li, a {
     padding-bottom: 25px;
 }
 
+#Next_Question {
+  background: rgb(252, 12, 12);
+  animation: fondRadient 1.7s infinite;
+  animation-direction: alternate;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  max-width: 120px;
+  height: 20px;
+  font-weight: 500;
+  font-size: 10px;
+  display: none;
+  padding-bottom: 25px;
+}
+
 /* anime lancerPartie */
 
 /* ----------------------------------------------
@@ -890,7 +904,67 @@ li, a {
   display: none;
 }
 
+#cartemystereblock {
+  display: none;
+  cursor:pointer
+}
 
+#cartepuristeblock {
+  display: none;
+  cursor: pointer;
+}
+
+#CartePuriste {
+  background-image: url(../images/lancer_carte_game.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  width: 150px;
+  height: 210px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+
+  -webkit-animation: flip-in-hor-bottom 1.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: flip-in-hor-bottom 1.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+#CarteMystère {
+  background-image: url(../images/lancer_carte_game.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  width: 150px;
+  height: 210px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+
+  -webkit-animation: flip-in-hor-bottom 1.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: flip-in-hor-bottom 1.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
 
 
 

@@ -8,7 +8,7 @@ import random
 
 # Create your views here.
 
-class QuestionView(generics.CreateAPIView):
+class QuestionView(generics.ListAPIView):
     queryset = Questions.objects.all()
     serializer_class = QuestionSerializer
 
@@ -111,6 +111,48 @@ class GetQuestions(APIView):
         while True:   
             RandomNumQuestion = random.randint(1, limRandom)
             question = Questions.objects.filter(id=RandomNumQuestion).exclude(QuestionType__in=MysteryNum)
+            if len(question) > 0:
+                break
+
+        data = QuestionSerializer(question[0]).data
+        return Response(data, status=status.HTTP_200_OK)
+
+class GetPuriste(APIView):
+    
+    
+    def get(self, request, format=None):
+        serializer_class = QuestionSerializer
+        QuestionsRequest = Questions.objects.filter(QuestionType=6)
+        Box = []
+        for Q in QuestionsRequest:
+            Box.append(Q.id)
+        limRandom = len(Box) - 1
+            
+
+        while True:   
+            RandomNumQuestion = random.randint(0, limRandom)
+            question = Questions.objects.filter(id=Box[RandomNumQuestion])
+            if len(question) > 0:
+                break
+
+        data = QuestionSerializer(question[0]).data
+        return Response(data, status=status.HTTP_200_OK)
+
+class GetMystere(APIView):
+    
+    
+    def get(self, request, format=None):
+        serializer_class = QuestionSerializer
+        QuestionsRequest = Questions.objects.filter(QuestionType=7)
+        Box = []
+        for Q in QuestionsRequest:
+            Box.append(Q.id)
+        limRandom = len(Box) - 1
+            
+
+        while True:   
+            RandomNumQuestion = random.randint(0, limRandom)
+            question = Questions.objects.filter(id=Box[RandomNumQuestion])
             if len(question) > 0:
                 break
 
