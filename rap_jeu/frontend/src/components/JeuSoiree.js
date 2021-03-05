@@ -3,6 +3,7 @@ import mehdiBase from "../../static/images/mehdi_main_dans_le_dos_neutre.svg"
 import mehdiCarteNeutre from "../../static/images/mehdi_carte_main_neutre.svg"
 import jauge_droite from "../../static/images/jauge_droite.svg"
 import jauge_gauche from "../../static/images/jauge_gauche.svg"
+import sablier from "../../static/images/sablier_eclaire.svg"
 import Button from "@material-ui/core/Button";
 
 export default class JeuSoiree extends Component {
@@ -144,7 +145,6 @@ export default class JeuSoiree extends Component {
             document.querySelector("#Text_Soiree").innerHTML = `${this.state.explication}`;
             // aficher timer et pas affiche repsoiree
             document.querySelector("#Timer").style.display = "block";
-            document.querySelector("#Timer").innerHTML = "Lancer Timer";
             setTimeout(function() {
                 $("#Text_Soiree").removeClass("tracking-in-expand");
                 $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
@@ -226,7 +226,7 @@ export default class JeuSoiree extends Component {
         }, 2000);
 
         document.querySelector("#Timer").style.display = "none";
-        document.querySelector("#p_timer").style.display = "block";
+        document.querySelector("#p_timer").style.display = "flex";
         
         // Timer func
         const startingMinutes = 1;
@@ -236,20 +236,22 @@ export default class JeuSoiree extends Component {
             const minutes = Math.floor(time / 60);
             let seconds = time % 60;
 
-            if (document.querySelector("#Voir_repSoiree").style.display === "none") {
-                //hide timer
-                if (seconds > 0) {
-                    document.querySelector("#PTimer_text").innerHTML = `${seconds}`;
-                } else if (seconds < 0) {
-                    document.querySelector("#Text_Soiree").innerHTML = "Temps écoulé !";
-                } else if (seconds === 0) {
-                    document.querySelector("#PTimer_text").innerHTML = "";
-                }
+            console.log("ca part pas");
+            document.querySelector("#p_timer").style.display = "flex";
+           
 
+            if (seconds > 0) {
+                document.querySelector("#PTimer_text").innerHTML = `${seconds}`;
             }
+
+            if (seconds < 0) {
+                document.querySelector("#Text_Soiree").innerHTML = "Temps écoulé !";
+            }
+            
 
             if (seconds === -2 || document.querySelector("#Voir_repSoiree").style.display === "block" || document.querySelector("#buttonSoireePointAttrib1").style.display === "none") {
                 //hide timer
+                console.log("ca cahceh come u ne eutberere");
                 document.querySelector("#p_timer").style.display = "none";
                 clearInterval(StopTimer);
             }
@@ -518,7 +520,7 @@ export default class JeuSoiree extends Component {
             <p id="Text_Soiree"></p>
             <Button id="Voir_repSoiree" onClick={this.DeclencheVoirRep}>Afficher Réponse</Button>
             <Button id="Next_Question" onClick={this.NextMystereQuestion}>Question Suivante</Button>
-            <Button id="Timer" onClick={this.DeclencheTimer}>Lancer Timer</Button>
+            <div id="Timer" onClick={this.DeclencheTimer}><img id="Sablier" src={sablier}></img></div>
             <div id="p_timer"><p id="PTimer_text"></p></div>
             <div id="QuestionSoiree"><p id="TextJaugeQuestionSoiree"></p></div>
         </div>

@@ -810,7 +810,7 @@ li, a {
 #QuestionSoiree {
     background-image: url(../images/jauge_question_rotate.svg);
     width: 1100px;
-    height: 138px;
+    height: 120px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: flex;
@@ -876,7 +876,7 @@ li, a {
 /* */
 
 #TextJaugeQuestionSoiree {
-    margin-top: 27px;
+    margin-top: 20px;
     font-family: "Raleway", sans-serif;
     font-weight: 500;
     font-size: 15px;
@@ -898,6 +898,11 @@ li, a {
 
 #Timer {
   display: none;
+}
+
+#Sablier {
+  width: 100px;
+  height: 50px;
 }
 
 #p_timer {
