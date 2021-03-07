@@ -562,18 +562,49 @@ li, a {
 /* */
 
 #buttonSoireePointAttrib1 {
-    background: rgb(13, 13, 223);
-    color: rgb(0, 0, 0);
-    background-color: rgb(251, 255, 25);
-    border-style:solid;
-    border-width:2px;
-    border-color: black;
-    box-shadow: 3px 3px rgb(0, 0, 0);
-    font-family: "Raleway", sans-serif;
-    max-width: 100px;
-    display: none;
-    -webkit-animation: tilt-in-left-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	  animation: tilt-in-left-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  background: rgb(255, 255, 255);
+  color: rgb(6, 4, 78);
+  font-family: "Raleway", sans-serif;
+  box-shadow: 0px 3px rgb(251, 255, 2);
+  font-size: 18px;
+  display: none;
+  padding: 5px;
+  align-items: center;
+  border-color: rgb(251, 255, 14);
+  border-width: 4px;
+  align-content: row;
+  border-radius: 30px;
+  border-style: solid;
+  transition: box-shadow 0.4s; 
+  max-width: 200px;
+  padding: 10px;
+  
+  -webkit-animation: tilt-in-left-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: tilt-in-left-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+  transition: box-shadow 0.8s, border-color 0.8s;
+}
+
+#buttonSoireePointAttrib1:hover {
+  background: rgb(255, 255, 255);
+  color: rgb(6, 4, 78);
+  font-family: "Raleway", sans-serif;
+  box-shadow: 0px 3px rgb(255, 2, 2);
+  font-size: 18px;
+  display: none;
+  padding: 5px;
+  align-items: center;
+  border-color: rgb(255, 0, 0);
+  border-width: 4px;
+  align-content: row;
+  border-radius: 30px;
+  border-style: solid;
+  transition: box-shadow 0.4s; 
+  max-width: 200px;
+  padding: 10px;
+  
+  -webkit-animation: tilt-in-left-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: tilt-in-left-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 /* entrance attrib2 */
@@ -624,18 +655,49 @@ li, a {
 /* */ 
 
 #buttonSoireePointAttrib2 {
-    background: rgb(13, 13, 223);
-    color: rgb(0, 0, 0);
-    background-color: rgb(251, 255, 25);
-    border-style:solid;
-    border-width:2px;
-    border-color: black;
-    box-shadow: 3px 3px rgb(0, 0, 0);
-    font-family: "Raleway", sans-serif;
-    max-width: 100px;
-    display: none;
-    -webkit-animation: tilt-in-right-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	  animation: tilt-in-right-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  background: rgb(255, 255, 255);
+  color: rgb(6, 4, 78);
+  font-family: "Raleway", sans-serif;
+  box-shadow: 0px 3px rgb(255, 251, 0);
+  font-size: 18px;
+  display: none;
+  padding: 5px;
+  align-items: center;
+  border-color: rgb(251, 255, 8);
+  border-width: 4px;
+  align-content: row;
+  border-radius: 30px;
+  border-style: solid;
+  transition: box-shadow 0.4s;
+  max-width: 200px;
+  padding: 10px;
+
+  -webkit-animation: tilt-in-right-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: tilt-in-right-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+  transition: box-shadow 0.8s, border-color 0.8s;
+}
+
+#buttonSoireePointAttrib2:hover {
+  background: rgb(255, 255, 255);
+  color: rgb(6, 4, 78);
+  font-family: "Raleway", sans-serif;
+  box-shadow: 0px 3px rgb(255, 9, 9);
+  font-size: 18px;
+  display: none;
+  padding: 5px;
+  align-items: center;
+  border-color: rgb(255, 3, 3);
+  border-width: 4px;
+  align-content: row;
+  border-radius: 30px;
+  border-style: solid;
+  transition: box-shadow 0.4s;
+  max-width: 200px;
+  padding: 10px;
+
+  -webkit-animation: tilt-in-right-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: tilt-in-right-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 #Jauge {
@@ -768,10 +830,10 @@ li, a {
 
 @keyframes TexteMehdiMove {
     0% {
-        box-shadow: 3px 3px rgb(0, 0, 0);
+        box-shadow: 3px 3px rgb(9, 5, 59);
     }
     100% {
-        box-shadow: 8px 8px rgb(0, 0, 0);
+        box-shadow: 8px 8px rgb(9, 5, 59);
     }
   }
 
@@ -779,12 +841,12 @@ li, a {
     font-family: "Raleway", sans-serif;
     font-weight: 500;
     font-size: 17.2px;
-    color: rgb(0, 0, 0);
+    color: rgb(9, 5, 59);
     background-color: rgb(255, 255, 255);
     border-style:solid;
     border-width:2px;
-    border-color: rgb(0, 0, 0);
-    box-shadow: 3px 3px rgb(0, 0, 0);
+    border-color: rgb(9, 5, 59);
+    box-shadow: 3px 3px rgb(9, 5, 59);
     padding: 5px;
     width: 780px;
     height: 53px;
@@ -844,34 +906,115 @@ li, a {
 /* */
 
 #Voir_repSoiree {
-    background: rgb(248, 8, 8);
-    color: rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
+    color: rgb(6, 4, 78);
     font-family: "Raleway", sans-serif;
-    box-shadow: 3px 3px rgb(255, 220, 19);
-    max-width: 130px;
-    height: 20px;
-    font-weight: 500;
-    font-size: 10px;
+    box-shadow: 0px 3px rgb(18, 4, 80);
+    font-size: 18px;
     display: none;
-    padding-bottom: 25px;
+    padding: 5px;
     -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	  animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    align-items: center;
+    border-color: rgb(10, 3, 78);
+    border-width: 2px;
+    align-content: row;
+    border-radius: 30px;
+    border-style: solid;
+    transition: box-shadow 0.4s;
 }
 
 #Next_Question {
-  background: rgb(255, 14, 14);
   -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  color: rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
+  color: rgb(6, 4, 78);
   font-family: "Raleway", sans-serif;
-  box-shadow: 3px 3px rgb(255, 239, 16);
-  max-width: 140px;
-  height: 20px;
-  font-weight: 500;
-  font-size: 10px;
+  box-shadow: 0px 3px rgb(18, 4, 80);
+  font-size: 18px;
   display: none;
-  padding-bottom: 25px;
+  padding: 5px;
+  align-items: center;
+  border-color: rgb(10, 3, 78);
+  border-width: 2px;
+  align-content: row;
+  border-radius: 30px;
+  border-style: solid;
+  transition: box-shadow 0.4s;
 }
+
+#Voir_repSoiree:hover {
+  background: rgb(255, 255, 255);
+  color: rgb(6, 4, 78);
+  font-family: "Raleway", sans-serif;
+  box-shadow: 0px 0px rgb(18, 4, 80);
+  font-size: 18px;
+  display: none;
+  padding: 5px;
+  -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  align-items: center;
+  border-color: rgb(10, 3, 78);
+  border-width: 4px;
+  align-content: row;
+  border-radius: 30px;
+  border-style: solid;
+}
+
+#Next_Question:hover {
+-webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+background: rgb(255, 255, 255);
+color: rgb(6, 4, 78);
+font-family: "Raleway", sans-serif;
+box-shadow: 0px 0px rgb(18, 4, 80);
+font-size: 18px;
+display: none;
+padding: 5px;
+align-items: center;
+border-color: rgb(10, 3, 78);
+border-width: 4px;
+align-content: row;
+border-radius: 30px;
+border-style: solid;
+}
+
+#Passer_Question {
+  -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  background: rgb(255, 255, 255);
+  color: rgb(6, 4, 78);
+  font-family: "Raleway", sans-serif;
+  box-shadow: 0px 3px rgb(18, 4, 80);
+  font-size: 18px;
+  display: none;
+  padding: 5px;
+  align-items: center;
+  border-color: rgb(10, 3, 78);
+  border-width: 2px;
+  align-content: row;
+  border-radius: 30px;
+  border-style: solid;
+  transition: box-shadow 0.4s;
+}
+
+#Passer_Question:hover {
+  -webkit-animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: scale-in-hor-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  background: rgb(255, 255, 255);
+  color: rgb(6, 4, 78);
+  font-family: "Raleway", sans-serif;
+  box-shadow: 0px 0px rgb(18, 4, 80);
+  font-size: 18px;
+  display: none;
+  padding: 5px;
+  align-items: center;
+  border-color: rgb(10, 3, 78);
+  border-width: 4px;
+  align-content: row;
+  border-radius: 30px;
+  border-style: solid;
+  }
 
 /* anime lancerPartie */
 
@@ -953,16 +1096,34 @@ li, a {
 
 #Lancer_Reprendre_Partie {
     background: #ffffff;
-    color: rgb(0, 0, 0);
+    color: rgb(9, 5, 59);
     font-family: "Raleway", sans-serif;
     width: 350px;
     height: 150px;
     font-weight: 500;
-    font-size: 27px;
-    display: block;
-    box-shadow: 3px 3px rgb(0, 0, 0);
+    font-size: 22px;
+    display: flex;
+    box-shadow: 0px 4px rgb(3, 2, 54);
+    border-radius: 30px;
     border-style:solid;
     border-width:4px;
+    align-content: row;
+} 
+
+#Lancer_Reprendre_Partie:hover {
+  background: #ffffff;
+  color: rgb(9, 5, 59);
+  font-family: "Raleway", sans-serif;
+  width: 355px;
+  height: 155px;
+  font-weight: 500;
+  font-size: 22px;
+  display: flex;
+  box-shadow: 0px 1px rgb(3, 2, 54);
+  border-radius: 30px;
+  border-style:solid;
+  border-width:4px;
+  align-content: row;
 } 
 
 #QuestionSoiree {
@@ -1056,6 +1217,40 @@ li, a {
 
 #Timer {
   display: none;
+  align-content: row;
+  font-family: "Raleway", sans-serif;
+  color: rgb(17, 3, 82);
+  background-color: rgb(255, 255, 255);
+  border-style:solid;
+  border-width:2px;
+  border-color: rgb(52, 5, 114);
+  border-radius: 30px;
+  box-shadow: 0px 3px rgb(3, 4, 75);
+  padding: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.4s;
+}
+
+#Timer:hover {
+  display: none;
+  align-content: row;
+  font-family: "Raleway", sans-serif;
+  color: rgb(17, 3, 82);
+  background-color: rgb(255, 255, 255);
+  border-style:solid;
+  border-width:4px;
+  border-color: rgb(52, 5, 114);
+  border-radius: 30px;
+  box-shadow: 0px 0px rgb(8, 12, 226);
+  padding: 8px;
+  cursor: pointer;
+}
+
+#text_lancerTimer {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
 }
 
 /* entrance sablier */
@@ -1106,9 +1301,8 @@ li, a {
 /* */
 
 #Sablier {
-  width: 100px;
-  height: 50px;
-  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.2));
+  width: 50px;
+  height: 30px;
   cursor: pointer;
   -webkit-animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -1170,10 +1364,24 @@ li, a {
 /* */
 
 #p_timer {
+  background: rgb(255, 255, 255);
+  color: rgb(6, 4, 78);
+  font-family: "Raleway", sans-serif;
+  box-shadow: 0px 3px rgb(3, 33, 97);
+  font-size: 18px;
   display: none;
-  -webkit-animation: swing-in-top-fwd 0.7s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+  padding: 5px;
+  align-items: center;
+  border-color: rgb(5, 16, 116);
+  border-width: 2px;
+  align-content: row;
+  border-radius: 30px;
+  border-style: solid;
+  transition: box-shadow 0.4s; 
+  max-width: 200px;
+  padding: 10px;
+
 	animation: swing-in-top-fwd 0.7s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-  box-shadow: 3px 3px rgb(14, 50, 117);
 }
 
 #PTimer_text {
@@ -1251,5 +1459,7 @@ li, a {
   display: none;
 }
 
-
-
+#playbutton {
+  width:50px;
+  height:50px;
+}

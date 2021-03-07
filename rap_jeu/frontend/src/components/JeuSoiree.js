@@ -4,6 +4,11 @@ import mehdiCarteNeutre from "../../static/images/mehdi_carte_main_neutre.svg"
 import jauge_droite from "../../static/images/jauge_droite.svg"
 import jauge_gauche from "../../static/images/jauge_gauche.svg"
 import sablier from "../../static/images/sablier_eclaire.svg"
+
+import question from "../../static/images/Question_mark.svg"
+import play from "../../static/images/Play_button.svg"
+import passer from "../../static/images/pass.svg"
+import plus_button from "../../static/images/plus_button.svg"
 import Button from "@material-ui/core/Button";
 
 export default class JeuSoiree extends Component {
@@ -149,7 +154,7 @@ export default class JeuSoiree extends Component {
             document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.question}`;
             document.querySelector("#Text_Soiree").innerHTML = `${this.state.explication}`;
             // aficher timer et pas affiche repsoiree
-            document.querySelector("#Timer").style.display = "block";
+            document.querySelector("#Timer").style.display = "flex";
             setTimeout(function() {
                 $("#Text_Soiree").removeClass("tracking-in-expand");
                 $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
@@ -159,7 +164,7 @@ export default class JeuSoiree extends Component {
             $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
             document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.question}`;
             document.querySelector("#Text_Soiree").innerHTML = `${this.state.explication}`;
-            document.querySelector("#Voir_repSoiree").style.display = "block";
+            document.querySelector("#Voir_repSoiree").style.display = "flex";
             setTimeout(function() {
                 $("#Text_Soiree").removeClass("tracking-in-expand");
                 $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
@@ -172,7 +177,7 @@ export default class JeuSoiree extends Component {
             $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
             document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.question}`;
             document.querySelector("#Text_Soiree").innerHTML = `${this.state.explication}`;
-            document.querySelector("#Next_Question").style.display = "block";
+            document.querySelector("#Next_Question").style.display = "flex";
             setTimeout(function() {
                 $("#Text_Soiree").removeClass("tracking-in-expand");
                 $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
@@ -203,7 +208,7 @@ export default class JeuSoiree extends Component {
             $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
             document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.question}`;
             document.querySelector("#Text_Soiree").innerHTML = `${this.state.explication}`;
-            document.querySelector("#Voir_repSoiree").style.display = "block";
+            document.querySelector("#Voir_repSoiree").style.display = "flex";
             setTimeout(function() {
                 $("#Text_Soiree").removeClass("tracking-in-expand");
                 $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
@@ -211,6 +216,7 @@ export default class JeuSoiree extends Component {
     }
 
     DeclencheVoirRep() {
+        document.querySelector("#Passer_Question").style.display = "flex";
         $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
         document.querySelector("#Voir_repSoiree").style.display = "none"; 
         document.querySelector("#buttonSoireePointAttrib1").style.display = "block"; 
@@ -254,7 +260,7 @@ export default class JeuSoiree extends Component {
             }
             
 
-            if (seconds === -2 || document.querySelector("#Voir_repSoiree").style.display === "block" || document.querySelector("#buttonSoireePointAttrib1").style.display === "none") {
+            if (seconds === -2 || document.querySelector("#Voir_repSoiree").style.display === "flex" || document.querySelector("#buttonSoireePointAttrib1").style.display === "none") {
                 //hide timer
                 console.log("ca cahceh come u ne eutberere");
                 document.querySelector("#p_timer").style.display = "none";
@@ -417,7 +423,10 @@ export default class JeuSoiree extends Component {
     }
 
     getQuestionDetailsGame() {
-        document.querySelector("#Next_Question").style.display = "none"; 
+        document.querySelector("#buttonSoireePointAttrib1").style.display = "none"; 
+        document.querySelector("#buttonSoireePointAttrib2").style.display = "none";
+        document.querySelector("#Next_Question").style.display = "none";
+        document.querySelector("#Passer_Question").style.display = "none";
         fetch('/api/get-question').then((response) => 
         response.json()
         ).then((data) => {
@@ -514,18 +523,19 @@ export default class JeuSoiree extends Component {
                     <p id="NomEquip2">{this.state.equipe2.toUpperCase()}<br/><p id="point2Soiree">{this.state.point2.toString()} POINTS</p></p>
                 </div>
             </div>
-            <Button id="Lancer_Reprendre_Partie" onClick={this.CheckIntroOutro}>Lancer/Reprendre Partie</Button>
+            <Button id="Lancer_Reprendre_Partie" onClick={this.CheckIntroOutro}><img src={play} id="playbutton" />Lancer/Reprendre Partie</Button>
             <div id="Mehdi_button">
                 <div id="cartepuristeblock" onClick={this.getQuestionDetailsGameVPuriste}><div id="CartePuriste">Carte Puriste</div></div>
-                <Button id="buttonSoireePointAttrib1" onClick={this.Point1Change}>+ 1 Equipe {this.state.equipe1}</Button>
+                <Button id="buttonSoireePointAttrib1" onClick={this.Point1Change}><img id="Sablier" src={plus_button}></img><p id="text_lancerTimer">+ 1 Equipe {this.state.equipe1}</p></Button>
                 <img id="MehdiImg" src={mehdiBase} width="250" height="300"/>
-                <Button id="buttonSoireePointAttrib2" onClick={this.Point2Change}>+ 1 Equipe {this.state.equipe2}</Button>
+                <Button id="buttonSoireePointAttrib2" onClick={this.Point2Change}><img id="Sablier" src={plus_button}></img><p id="text_lancerTimer">+ 1 Equipe {this.state.equipe2}</p></Button>
                 <div id="cartemystereblock" onClick={this.getQuestionDetailsGameVMystere}><div id="CarteMystère">Carte Mystère</div></div>
             </div>
             <p id="Text_Soiree"></p>
-            <Button id="Voir_repSoiree" onClick={this.DeclencheVoirRep}>Afficher Réponse</Button>
-            <Button id="Next_Question" onClick={this.NextMystereQuestion}>Question Suivante</Button>
-            <div id="Timer" onClick={this.DeclencheTimer}><img id="Sablier" src={sablier}></img></div>
+            <Button id="Voir_repSoiree" onClick={this.DeclencheVoirRep}><img id="Sablier" src={question}></img><p id="text_lancerTimer">Afficher Réponse</p></Button>
+            <Button id="Next_Question" onClick={this.NextMystereQuestion}><img id="Sablier" src={passer}></img><p id="text_lancerTimer">Question Suivante</p></Button>
+            <Button id="Passer_Question" onClick={this.getQuestionDetailsGame}><img id="Sablier" src={passer}></img><p id="text_lancerTimer">Passer Question</p></Button>
+            <div id="Timer" onClick={this.DeclencheTimer}><img id="Sablier" src={sablier}></img><p id="text_lancerTimer">Lancer Timer</p></div>
             <div id="p_timer"><p id="PTimer_text"></p></div>
             <div id="QuestionSoiree"><p id="TextJaugeQuestionSoiree"></p></div>
         </div>
