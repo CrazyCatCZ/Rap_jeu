@@ -69,6 +69,7 @@ export default class JeuSoiree extends Component {
 
     CheckIntroOutro() {
         document.querySelector("#Lancer_Reprendre_Partie").style.display = "none";
+        document.querySelector("#Text_Soiree").style.display = "block";
         document.querySelector("#Mehdi_button").style.display = "flex";
         if (this.state.point1 === 0 && this.state.point2 === 0) {
             this.Intro();
@@ -119,23 +120,27 @@ export default class JeuSoiree extends Component {
             console.log("carte mystère");
             document.querySelector("#cartemystereblock").style.display = "block";
             document.querySelector("#cartepuristeblock").style.display = "block";
+            document.querySelector("#TextJaugeQuestionSoiree").innerHTML = "";
             document.querySelector("#Text_Soiree").innerHTML = `Carte Mystères pour l'équipe ${this.state.equipe1} choisissez entre la carte puriste ou mystère`;
             
         } else if (this.state.NbQuestion === 9) {
             console.log("carte mystère");
             document.querySelector("#cartemystereblock").style.display = "block";
             document.querySelector("#cartepuristeblock").style.display = "block";
+            document.querySelector("#TextJaugeQuestionSoiree").innerHTML = "";
             document.querySelector("#Text_Soiree").innerHTML = `Carte Mystères pour l'équipe ${this.state.equipe2} choisissez entre la carte puriste ou mystère`;
 
         } else if (this.state.NbQuestion === 19) {
             console.log("carte mystère");
             document.querySelector("#cartemystereblock").style.display = "block";
             document.querySelector("#cartepuristeblock").style.display = "block";
+            document.querySelector("#TextJaugeQuestionSoiree").innerHTML = "";
             document.querySelector("#Text_Soiree").innerHTML = `Carte Mystères pour l'équipe ${this.state.equipe1} choisissez entre la carte puriste ou mystère`;
         } else if (this.state.NbQuestion === 15) {
             console.log("carte mystère");
             document.querySelector("#cartemystereblock").style.display = "block";
             document.querySelector("#cartepuristeblock").style.display = "block";
+            document.querySelector("#TextJaugeQuestionSoiree").innerHTML = "";
             document.querySelector("#Text_Soiree").innerHTML = `Carte Mystères pour l'équipe ${this.state.equipe2} choisissez entre la carte puriste ou mystère`;
         } else if (this.state.QuestionType === 5) {
             console.log('enchere');
