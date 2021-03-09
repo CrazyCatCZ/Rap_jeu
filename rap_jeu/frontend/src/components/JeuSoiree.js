@@ -8,7 +8,8 @@ import sablier from "../../static/images/sablier_eclaire.svg"
 import question from "../../static/images/Question_mark.svg"
 import play from "../../static/images/Play_button.svg"
 import passer from "../../static/images/pass.svg"
-import plus_button from "../../static/images/plus_button.svg"
+import plus_droite from "../../static/images/brique_point_plusone.svg"
+import plus_gauche from "../../static/images/cote_gauche_plusone.svg"
 import Button from "@material-ui/core/Button";
 
 export default class JeuSoiree extends Component {
@@ -69,6 +70,9 @@ export default class JeuSoiree extends Component {
         this.Point1ChangeMystereMoins = this.Point1ChangeMystereMoins.bind(this);
         this.Point2ChangeMystereMoins = this.Point1ChangeMystereMoins.bind(this);
         this.NextMystereQuestion = this.NextMystereQuestion.bind(this);
+        this.getQuestionDetailsGameEnchere = this.getQuestionDetailsGameEnchere.bind(this);
+        this.NbQuestionPasser = this.NbQuestionPasser.bind(this);
+        this.getQuestionDetailsGameRolandGamos = this.getQuestionDetailsGameRolandGamos.bind(this);
         
     }
 
@@ -147,7 +151,7 @@ export default class JeuSoiree extends Component {
             document.querySelector("#cartepuristeblock").style.display = "block";
             document.querySelector("#TextJaugeQuestionSoiree").innerHTML = "";
             document.querySelector("#Text_Soiree").innerHTML = `Carte Mystères pour l'équipe ${this.state.equipe2} choisissez entre la carte puriste ou mystère`;
-        } else if (this.state.QuestionType === 5) {
+        } else if (this.state.QuestionType === 55) {
             console.log('enchere');
             $("#Text_Soiree").addClass("tracking-in-expand");
             $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
@@ -159,6 +163,20 @@ export default class JeuSoiree extends Component {
                 $("#Text_Soiree").removeClass("tracking-in-expand");
                 $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
             }, 2000); 
+        } else if (this.state.NbQuestion === 10 || this.state.NbQuestion === 20) {
+            this.getQuestionDetailsGameEnchere();
+        } else if(this.state.QuestionType === 22) {
+            $("#Text_Soiree").addClass("tracking-in-expand");
+            $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
+            document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.question}`;
+            document.querySelector("#Text_Soiree").innerHTML = `${this.state.explication}`;
+            document.querySelector("#Voir_repSoiree").style.display = "flex";
+            setTimeout(function() {
+                $("#Text_Soiree").removeClass("tracking-in-expand");
+                $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
+            }, 2000); 
+        } else if(this.state.NbQuestion === 12 || this.state.NbQuestion === 25) {
+            this.getQuestionDetailsGameRolandGamos();
         } else {
             $("#Text_Soiree").addClass("tracking-in-expand");
             $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
@@ -219,8 +237,8 @@ export default class JeuSoiree extends Component {
         document.querySelector("#Passer_Question").style.display = "flex";
         $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
         document.querySelector("#Voir_repSoiree").style.display = "none"; 
-        document.querySelector("#buttonSoireePointAttrib1").style.display = "block"; 
-        document.querySelector("#buttonSoireePointAttrib2").style.display = "block"; 
+        document.querySelector("#buttonSoireePointAttrib1").style.display = "flex"; 
+        document.querySelector("#buttonSoireePointAttrib2").style.display = "flex"; 
         document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.réponse}`;
         setTimeout(function() {
             $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
@@ -229,8 +247,8 @@ export default class JeuSoiree extends Component {
 
     DeclencheTimer() {
         $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
-        document.querySelector("#buttonSoireePointAttrib1").style.display = "block"; 
-        document.querySelector("#buttonSoireePointAttrib2").style.display = "block"; 
+        document.querySelector("#buttonSoireePointAttrib1").style.display = "flex"; 
+        document.querySelector("#buttonSoireePointAttrib2").style.display = "flex"; 
         document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.question}`;
         setTimeout(function() {
             $("#TextJaugeQuestionSoiree").removeClass("swing-in-top-fwd");
@@ -381,6 +399,23 @@ export default class JeuSoiree extends Component {
 
     }
 
+    NbQuestionPasser() {
+        this.setState({
+          NbQuestion: this.state.NbQuestion + 1,
+        });
+        document.querySelector("#buttonSoireePointAttrib1").style.display = "none"; 
+        document.querySelector("#buttonSoireePointAttrib2").style.display = "none";
+        
+        setTimeout(
+            function() {
+                this.DeclencheAttribPoint()
+            }
+            .bind(this),
+            1000
+        );
+
+    }
+
 
     DeclencheAttribPoint() {
 
@@ -493,6 +528,52 @@ export default class JeuSoiree extends Component {
         });
     }
 
+    getQuestionDetailsGameEnchere() {
+        document.querySelector("#cartepuristeblock").style.display = "none";
+        document.querySelector("#cartemystereblock").style.display = "none";
+        fetch('/api/get-enchere').then((response) => 
+        response.json()
+        ).then((data) => {
+            this.setState({
+                question: data.question,
+                réponse: data.réponse,
+                QuestionType: data.QuestionType,
+                explication: data.explication,
+                choix1: data.choix1,
+                choix2: data.choix2,
+                choix3: data.choix3,
+                choix4: data.choix4,
+                musique: data.musique,
+            }, () => {
+                console.log(data.réponse);
+                this.DeclencheQuestions();
+            });
+        });
+    }
+
+    getQuestionDetailsGameRolandGamos() {
+        document.querySelector("#cartepuristeblock").style.display = "none";
+        document.querySelector("#cartemystereblock").style.display = "none";
+        fetch('/api/get-roland').then((response) => 
+        response.json()
+        ).then((data) => {
+            this.setState({
+                question: data.question,
+                réponse: data.réponse,
+                QuestionType: data.QuestionType,
+                explication: data.explication,
+                choix1: data.choix1,
+                choix2: data.choix2,
+                choix3: data.choix3,
+                choix4: data.choix4,
+                musique: data.musique,
+            }, () => {
+                console.log(data.réponse);
+                this.DeclencheQuestions();
+            });
+        });
+    }
+
     getQuestionDetails() {
         fetch('/api/get-question').then((response) => 
         response.json()
@@ -526,15 +607,15 @@ export default class JeuSoiree extends Component {
             <Button id="Lancer_Reprendre_Partie" onClick={this.CheckIntroOutro}><img src={play} id="playbutton" />Lancer/Reprendre Partie</Button>
             <div id="Mehdi_button">
                 <div id="cartepuristeblock" onClick={this.getQuestionDetailsGameVPuriste}><div id="CartePuriste">Carte Puriste</div></div>
-                <Button id="buttonSoireePointAttrib1" onClick={this.Point1Change}><img id="Sablier" src={plus_button}></img><p id="text_lancerTimer">+ 1 Equipe {this.state.equipe1}</p></Button>
-                <img id="MehdiImg" src={mehdiBase} width="250" height="300"/>
-                <Button id="buttonSoireePointAttrib2" onClick={this.Point2Change}><img id="Sablier" src={plus_button}></img><p id="text_lancerTimer">+ 1 Equipe {this.state.equipe2}</p></Button>
+                <Button id="buttonSoireePointAttrib1" onClick={this.Point1Change}><img id="Sablier" src={plus_gauche}></img><p id="text_lancerTimer">+ 1 Equipe {this.state.equipe1}</p></Button>
+                <img id="MehdiImg" src={mehdiBase} width="250" height="270"/>
+                <Button id="buttonSoireePointAttrib2" onClick={this.Point2Change}><p id="text_lancerTimer">+ 1 Equipe {this.state.equipe2}</p><img id="Sablier" src={plus_droite}></img></Button>
                 <div id="cartemystereblock" onClick={this.getQuestionDetailsGameVMystere}><div id="CarteMystère">Carte Mystère</div></div>
             </div>
             <p id="Text_Soiree"></p>
             <Button id="Voir_repSoiree" onClick={this.DeclencheVoirRep}><img id="Sablier" src={question}></img><p id="text_lancerTimer">Afficher Réponse</p></Button>
             <Button id="Next_Question" onClick={this.NextMystereQuestion}><img id="Sablier" src={passer}></img><p id="text_lancerTimer">Question Suivante</p></Button>
-            <Button id="Passer_Question" onClick={this.getQuestionDetailsGame}><img id="Sablier" src={passer}></img><p id="text_lancerTimer">Passer Question</p></Button>
+            <Button id="Passer_Question" onClick={this.NbQuestionPasser}><img id="Sablier" src={passer}></img><p id="text_lancerTimer">Passer Question</p></Button>
             <div id="Timer" onClick={this.DeclencheTimer}><img id="Sablier" src={sablier}></img><p id="text_lancerTimer">Lancer Timer</p></div>
             <div id="p_timer"><p id="PTimer_text"></p></div>
             <div id="QuestionSoiree"><p id="TextJaugeQuestionSoiree"></p></div>

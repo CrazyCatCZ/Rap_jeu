@@ -107,10 +107,10 @@ class GetQuestions(APIView):
         serializer_class = QuestionSerializer
         QuestionsRequest = Questions.objects.all()
         limRandom = len(QuestionsRequest)
-        MysteryNum = [6, 7, 9]
+        MysteryNum = [66, 77, 55, 22, 87]
 
         while True:   
-            RandomNumQuestion = random.randint(1, limRandom)
+            RandomNumQuestion = random.randint(24, limRandom)
             question = Questions.objects.filter(id=RandomNumQuestion).exclude(QuestionType__in=MysteryNum)
             if len(question) > 0:
                 break
@@ -123,7 +123,7 @@ class GetPuriste(APIView):
     
     def get(self, request, format=None):
         serializer_class = QuestionSerializer
-        QuestionsRequest = Questions.objects.filter(QuestionType=6)
+        QuestionsRequest = Questions.objects.filter(QuestionType=66)
         Box = []
         for Q in QuestionsRequest:
             Box.append(Q.id)
@@ -144,7 +144,49 @@ class GetMystere(APIView):
     
     def get(self, request, format=None):
         serializer_class = QuestionSerializer
-        QuestionsRequest = Questions.objects.filter(QuestionType=7)
+        QuestionsRequest = Questions.objects.filter(QuestionType=87)
+        Box = []
+        for Q in QuestionsRequest:
+            Box.append(Q.id)
+        limRandom = len(Box) - 1
+            
+
+        while True:   
+            RandomNumQuestion = random.randint(0, limRandom)
+            question = Questions.objects.filter(id=Box[RandomNumQuestion])
+            if len(question) > 0:
+                break
+
+        data = QuestionSerializer(question[0]).data
+        return Response(data, status=status.HTTP_200_OK)
+
+class GetEnchere(APIView):
+    
+    
+    def get(self, request, format=None):
+        serializer_class = QuestionSerializer
+        QuestionsRequest = Questions.objects.filter(QuestionType=55)
+        Box = []
+        for Q in QuestionsRequest:
+            Box.append(Q.id)
+        limRandom = len(Box) - 1
+            
+
+        while True:   
+            RandomNumQuestion = random.randint(0, limRandom)
+            question = Questions.objects.filter(id=Box[RandomNumQuestion])
+            if len(question) > 0:
+                break
+
+        data = QuestionSerializer(question[0]).data
+        return Response(data, status=status.HTTP_200_OK)
+    
+class GetRolandGamos(APIView):
+    
+    
+    def get(self, request, format=None):
+        serializer_class = QuestionSerializer
+        QuestionsRequest = Questions.objects.filter(QuestionType=22)
         Box = []
         for Q in QuestionsRequest:
             Box.append(Q.id)

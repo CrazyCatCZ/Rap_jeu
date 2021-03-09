@@ -57,7 +57,7 @@ export default class CreateRoomPage extends Component {
       return;
     }
 
-    if (this.state.Equipe1.length > 25 || this.state.Equipe2.length > 25) {
+    if (this.state.Equipe1.length > 12 || this.state.Equipe2.length > 12) {
       document.querySelector("#texterrorMess").innerHTML = "Les noms d'équipes sont soient trop grands soit inexistants, fait un effort frrrr";
       console.log('error');
       return;

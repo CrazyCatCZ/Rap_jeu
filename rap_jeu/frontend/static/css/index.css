@@ -840,7 +840,7 @@ li, a {
 #Text_Soiree {
     font-family: "Raleway", sans-serif;
     font-weight: 500;
-    font-size: 17.2px;
+    font-size: 15.8px;
     color: rgb(9, 5, 59);
     background-color: rgb(255, 255, 255);
     border-style:solid;
@@ -848,8 +848,8 @@ li, a {
     border-color: rgb(9, 5, 59);
     box-shadow: 3px 3px rgb(9, 5, 59);
     padding: 5px;
-    width: 780px;
-    height: 53px;
+    width: 800px;
+    height: 64px;
     text-align: center;
     margin-bottom: 20px;
     display: none;
