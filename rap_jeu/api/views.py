@@ -33,12 +33,16 @@ class CreateRoomView(APIView):
                 room.pointB = 0
                 room.nbQuestion = 0
                 room.save(update_fields=['equipeA', 'equipeB', 'pointA', 'pointB', 'nbQuestion'])
+                QuestionFait = []
+                self.request.session['question_fait'] = QuestionFait
                 self.request.session['room_code'] = room.code
                 return Response(RoomSerializer(room).data, status=status.HTTP_200_OK)
             else:
                 room = Room(host=host, equipeA=equipeA,
                             equipeB=equipeB)
                 room.save()
+                QuestionFait = []
+                self.request.session['question_fait'] = QuestionFait
                 self.request.session['room_code'] = room.code
                 return Response(RoomSerializer(room).data, status=status.HTTP_201_CREATED)
 
@@ -104,6 +108,8 @@ class GetQuestions(APIView):
     
     
     def get(self, request, format=None):
+        RecepQuestionFait = self.request.session['question_fait']
+
         serializer_class = QuestionSerializer
         QuestionsRequest = Questions.objects.all()
         limRandom = len(QuestionsRequest)
@@ -112,8 +118,11 @@ class GetQuestions(APIView):
         while True:   
             RandomNumQuestion = random.randint(24, limRandom)
             question = Questions.objects.filter(id=RandomNumQuestion).exclude(QuestionType__in=MysteryNum)
-            if len(question) > 0:
+            if len(question) > 0 and question[0].id not in RecepQuestionFait:
                 break
+
+        RecepQuestionFait.append(question[0].id)
+        self.request.session['question_fait'] = RecepQuestionFait
 
         data = QuestionSerializer(question[0]).data
         return Response(data, status=status.HTTP_200_OK)
@@ -122,8 +131,10 @@ class GetPuriste(APIView):
     
     
     def get(self, request, format=None):
+        RecepQuestionFait = self.request.session['question_fait']
+
         serializer_class = QuestionSerializer
-        QuestionsRequest = Questions.objects.filter(QuestionType=66)
+        QuestionsRequest = Questions.objects.filter(QuestionType=66).exclude(id__in=RecepQuestionFait)
         Box = []
         for Q in QuestionsRequest:
             Box.append(Q.id)
@@ -132,9 +143,12 @@ class GetPuriste(APIView):
 
         while True:   
             RandomNumQuestion = random.randint(0, limRandom)
-            question = Questions.objects.filter(id=Box[RandomNumQuestion])
+            question = Questions.objects.filter(id=Box[RandomNumQuestion]).exclude(id__in=RecepQuestionFait)
             if len(question) > 0:
                 break
+
+        RecepQuestionFait.append(question[0].id)
+        self.request.session['question_fait'] = RecepQuestionFait
 
         data = QuestionSerializer(question[0]).data
         return Response(data, status=status.HTTP_200_OK)
@@ -143,8 +157,10 @@ class GetMystere(APIView):
     
     
     def get(self, request, format=None):
+        RecepQuestionFait = self.request.session['question_fait']
+
         serializer_class = QuestionSerializer
-        QuestionsRequest = Questions.objects.filter(QuestionType=87)
+        QuestionsRequest = Questions.objects.filter(QuestionType=87).exclude(id__in=RecepQuestionFait)
         Box = []
         for Q in QuestionsRequest:
             Box.append(Q.id)
@@ -153,9 +169,12 @@ class GetMystere(APIView):
 
         while True:   
             RandomNumQuestion = random.randint(0, limRandom)
-            question = Questions.objects.filter(id=Box[RandomNumQuestion])
+            question = Questions.objects.filter(id=Box[RandomNumQuestion]).exclude(id__in=RecepQuestionFait)
             if len(question) > 0:
                 break
+
+        RecepQuestionFait.append(question[0].id)
+        self.request.session['question_fait'] = RecepQuestionFait
 
         data = QuestionSerializer(question[0]).data
         return Response(data, status=status.HTTP_200_OK)
@@ -164,8 +183,10 @@ class GetEnchere(APIView):
     
     
     def get(self, request, format=None):
+        RecepQuestionFait = self.request.session['question_fait']
+
         serializer_class = QuestionSerializer
-        QuestionsRequest = Questions.objects.filter(QuestionType=55)
+        QuestionsRequest = Questions.objects.filter(QuestionType=55).exclude(id__in=RecepQuestionFait)
         Box = []
         for Q in QuestionsRequest:
             Box.append(Q.id)
@@ -174,9 +195,12 @@ class GetEnchere(APIView):
 
         while True:   
             RandomNumQuestion = random.randint(0, limRandom)
-            question = Questions.objects.filter(id=Box[RandomNumQuestion])
+            question = Questions.objects.filter(id=Box[RandomNumQuestion]).exclude(id__in=RecepQuestionFait)
             if len(question) > 0:
                 break
+
+        RecepQuestionFait.append(question[0].id)
+        self.request.session['question_fait'] = RecepQuestionFait
 
         data = QuestionSerializer(question[0]).data
         return Response(data, status=status.HTTP_200_OK)
@@ -185,8 +209,10 @@ class GetRolandGamos(APIView):
     
     
     def get(self, request, format=None):
+        RecepQuestionFait = self.request.session['question_fait']
+
         serializer_class = QuestionSerializer
-        QuestionsRequest = Questions.objects.filter(QuestionType=22)
+        QuestionsRequest = Questions.objects.filter(QuestionType=22).exclude(id__in=RecepQuestionFait)
         Box = []
         for Q in QuestionsRequest:
             Box.append(Q.id)
@@ -195,9 +221,12 @@ class GetRolandGamos(APIView):
 
         while True:   
             RandomNumQuestion = random.randint(0, limRandom)
-            question = Questions.objects.filter(id=Box[RandomNumQuestion])
+            question = Questions.objects.filter(id=Box[RandomNumQuestion]).exclude(id__in=RecepQuestionFait)
             if len(question) > 0:
                 break
+
+        RecepQuestionFait.append(question[0].id)
+        self.request.session['question_fait'] = RecepQuestionFait
 
         data = QuestionSerializer(question[0]).data
         return Response(data, status=status.HTTP_200_OK)
