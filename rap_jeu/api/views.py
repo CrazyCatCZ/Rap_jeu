@@ -8,9 +8,26 @@ import random
 
 # Create your views here.
 
-class QuestionView(generics.CreateAPIView):
+class QuestionView(generics.ListAPIView):
     queryset = Questions.objects.all()
     serializer_class = QuestionSerializer
+
+class DeleteQuestion(APIView):
+    def get(self, request, format=None):
+        # Questions.objects.filter(id=126).delete()
+        ToModify = Questions.objects.filter(id=38)
+        Recep = ToModify[0]
+        Recep.réponse = "Thème : Rappeurs Français/US ou autres qui possèdent une marque de vêtements"
+        Recep.question = "Thème : Rappeurs Français/US ou autres qui possèdent une marque de vêtements"
+        Recep.save(update_fields=['question'])
+        Recep.save(update_fields=['réponse'])
+        return Response(Recep.id, status=status.HTTP_200_OK)
+
+        # ToModify = Questions.objects.filter(explication="Le Raptionaire : Le but est de trouver la signification de mot lié au rap")
+        # for Q in ToModify:
+        #     Q.explication = "Le Raptionaire: Le but est de trouver la signification de mot lié au rap"
+        #     Q.save(update_fields=['explication'])
+        # return Response(Q.id, status=status.HTTP_200_OK)
 
 class CreateRoomView(APIView):
     serializer_class = CreateRoomSerializer
