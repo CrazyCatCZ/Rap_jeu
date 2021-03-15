@@ -15,20 +15,36 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector("#faceInf").style.display = "block";
         document.querySelector("#QSN").style.display = "none";
         document.querySelector("#navContact").style.display = "none";
-        setTimeout(function() {
-            $("#logoRapjeu").addClass("logoMovemiddle");
-        }, 900);
+        $("#logoRapjeu").addClass("logoMovemiddle");
         setTimeout(function() {
             document.querySelector("#nav").style.justifyContent = "center";
             $("#logoRapjeu").removeClass("logoMovemiddle");
-        }, 1900);
+        }, 900);
         setTimeout(function() {
             document.querySelector("#faceInf").style.display = "none";
             app.style.display = "block";
-        }, 2100);
+        }, 900);
 
     };
-    
 
+    // anime background
+    var animDataBackground = bodymovin.loadAnimation ({
+        container: document.getElementById('backgroundJeuReel'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '../../static/images/31633-play-button.json'
+    })
+
+    // anime Timer
+    var animDataTimer = bodymovin.loadAnimation ({
+        container: document.getElementById('backgroundTimerReel'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '../../static/images/9690-hour-glass-egg-timer.json'
+    })
 });
+
+
 

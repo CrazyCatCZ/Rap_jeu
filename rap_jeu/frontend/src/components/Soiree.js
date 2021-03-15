@@ -44,10 +44,6 @@ export default class CreateRoomPage extends Component {
     });
   }
 
-  componentDidMount() {
-    $("#SoireeCreateParent").addClass("swing-in-top-fwd");
-  }
-
   // anime de passage au jeu 
 
   BeforeHandleRoomButtonPressed() {

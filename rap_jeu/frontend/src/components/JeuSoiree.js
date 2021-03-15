@@ -73,18 +73,37 @@ export default class JeuSoiree extends Component {
         this.getQuestionDetailsGameEnchere = this.getQuestionDetailsGameEnchere.bind(this);
         this.NbQuestionPasser = this.NbQuestionPasser.bind(this);
         this.getQuestionDetailsGameRolandGamos = this.getQuestionDetailsGameRolandGamos.bind(this);
-        
     }
 
     CheckIntroOutro() {
         document.querySelector("#Lancer_Reprendre_Partie").style.display = "none";
         document.querySelector("#Text_Soiree").style.display = "block";
         document.querySelector("#Mehdi_button").style.display = "flex";
+        document.querySelector("#MehdiImg").style.width = "40%";
+        document.querySelector("#MehdiImg").style.height = "65%";
         if (this.state.point1 === 0 && this.state.point2 === 0) {
             this.Intro();
-        } else if (this.state.point1 === 20 || this.state.point2 === 20) {
-            // a corriger 
+        } else if (this.state.point1 > 19 || this.state.point2 > 19) {
+            document.querySelector("#Voir_repSoiree").style.display = "none";
+            document.querySelector("#MehdiImg").style.width = "0%";
+            document.querySelector("#MehdiImg").style.height = "0%";
             console.log("fini");
+            document.querySelector("#Mehdi_button").style.display = "none";
+            // anime Trophy
+            var animDataTimer = bodymovin.loadAnimation ({
+                container: document.getElementById('backgroundEndReel'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: '../../static/images/29063-trophy.json'
+            })
+            document.querySelector("#backgroundEndReel").style.width = "100%";
+            document.querySelector("#backgroundEndReel").style.height = "70%";
+            if (this.state.point1 > 19) {
+                document.querySelector("#Text_Soiree").innerHTML = `L'équipe ${this.state.equipe1.toUpperCase()} remporte la partie !`
+            } else {
+                document.querySelector("#Text_Soiree").innerHTML = `L'équipe ${this.state.equipe2.toUpperCase()} remporte la partie !`
+            }
         } else {
             document.querySelector("#MehdiImg").src = `${mehdiCarteNeutre}`;
             this.DeclencheQuestions();
@@ -94,37 +113,60 @@ export default class JeuSoiree extends Component {
     Intro() {
         
         document.querySelector("#Text_Soiree").innerHTML = "BIENVENU DANS RAP JEU !";
-
-        setTimeout(function() {
-            document.querySelector("#Text_Soiree").innerHTML = "LE MEILLEUR JEU DE RAP AU MONDE JUSQU'A PREUVE DU CONTRAIRE"; 
-        }, 3500);
+        document.querySelector("#backgroundEndReel").style.width = "0%";
+        document.querySelector("#backgroundEndReel").style.height = "0%";
 
         setTimeout(
             function() {
-                document.querySelector("#Text_Soiree").innerHTML = `AJOURD'HUI LES ${this.state.equipe1.toUpperCase()} AFFRONTES LES ${this.state.equipe2.toUpperCase()}`;
+                document.querySelector("#Text_Soiree").innerHTML = `AUJOURD'HUI LES ${this.state.equipe1.toUpperCase()} AFFRONTES LES ${this.state.equipe2.toUpperCase()}`;
             }
             .bind(this),
-            7000
+            3500
         );
 
         setTimeout(function() {
             document.querySelector("#MehdiImg").src = `${mehdiCarteNeutre}`;
-        }, 11000);
+        }, 7000);
         setTimeout(function() {
-            document.querySelector("#Text_Soiree").innerHTML = "C'EST PARTIE PREMIERE QUESTIONS !"; 
-        }, 11000);
+            document.querySelector("#Text_Soiree").innerHTML = "C'EST PARTI PREMIERE QUESTION !"; 
+        }, 7000);
 
         setTimeout(
             function() {
                 this.DeclencheQuestions();
             }
             .bind(this),
-            14000
+            9500
         );
         
     }
 
     DeclencheQuestions() {
+        if (this.state.point1 > 19 || this.state.point2 > 19) {
+            document.querySelector("#MehdiImg").style.width = "0%";
+            document.querySelector("#MehdiImg").style.height = "0%";
+            document.querySelector("#Voir_repSoiree").style.display = "none";
+            console.log("fini");
+            document.querySelector("#Mehdi_button").style.display = "none";
+            // anime Trophy
+            var animDataTimer = bodymovin.loadAnimation ({
+                container: document.getElementById('backgroundEndReel'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: '../../static/images/29063-trophy.json'
+            })
+            document.querySelector("#backgroundEndReel").style.width = "100%";
+            document.querySelector("#backgroundEndReel").style.height = "70%";
+            if (this.state.point1 > 2) {
+                document.querySelector("#Text_Soiree").innerHTML = `L'équipe ${this.state.equipe1.toUpperCase()} remporte la partie !`
+            } else {
+                document.querySelector("#Text_Soiree").innerHTML = `L'équipe ${this.state.equipe2.toUpperCase()} remporte la partie !`
+            }
+            return console.log('terminado');
+        }
+
+
         if (this.state.NbQuestion === 5) {
             console.log("carte mystère");
             document.querySelector("#cartemystereblock").style.display = "block";
@@ -267,6 +309,8 @@ export default class JeuSoiree extends Component {
 
             console.log("ca part pas");
             document.querySelector("#p_timer").style.display = "flex";
+            document.querySelector('#backgroundTimerReel').style.width = "50px"
+            document.querySelector('#backgroundTimerReel').style.height = "50px"
            
 
             if (seconds > 0) {
@@ -282,6 +326,8 @@ export default class JeuSoiree extends Component {
                 //hide timer
                 console.log("ca cahceh come u ne eutberere");
                 document.querySelector("#p_timer").style.display = "none";
+                document.querySelector('#backgroundTimerReel').style.width = "0px"
+                document.querySelector('#backgroundTimerReel').style.height = "0px"
                 clearInterval(StopTimer);
             }
             time--;
@@ -290,6 +336,7 @@ export default class JeuSoiree extends Component {
     }
 
     Point1Change() {
+
         this.setState({
           point1: this.state.point1 + 1,
           NbQuestion: this.state.NbQuestion + 1,
@@ -308,6 +355,7 @@ export default class JeuSoiree extends Component {
     }
     
     Point2Change() {
+
     this.setState({
         point2: this.state.point2 + 1,
         NbQuestion: this.state.NbQuestion + 1,
@@ -596,6 +644,9 @@ export default class JeuSoiree extends Component {
     render() {
         return (
         <div id="JeuSoireeDivParent" class="puff-in-center">
+            <div id="backgroundJeuReel"></div>
+            <div id="backgroundEndReel"></div>
+            <img id="MehdiImg" src={mehdiCarteNeutre}/>
             <div id="Jauge">
                 <div id="jauge_gauche">
                     <p id="NomEquip1">{this.state.equipe1.toUpperCase()}<br/><p id="point1Soiree">{this.state.point1.toString()} POINTS</p></p>
@@ -608,7 +659,7 @@ export default class JeuSoiree extends Component {
             <div id="Mehdi_button">
                 <div id="cartepuristeblock" onClick={this.getQuestionDetailsGameVPuriste}><div id="CartePuriste">Carte Puriste</div></div>
                 <Button id="buttonSoireePointAttrib1" onClick={this.Point1Change}><img id="Sablier" src={plus_gauche}></img><p id="text_lancerTimer">+ 1 Equipe {this.state.equipe1}</p></Button>
-                <img id="MehdiImg" src={mehdiBase} width="250" height="270"/>
+                <div id="BlockSepareMehdiImg"></div>
                 <Button id="buttonSoireePointAttrib2" onClick={this.Point2Change}><p id="text_lancerTimer">+ 1 Equipe {this.state.equipe2}</p><img id="Sablier" src={plus_droite}></img></Button>
                 <div id="cartemystereblock" onClick={this.getQuestionDetailsGameVMystere}><div id="CarteMystère">Carte Mystère</div></div>
             </div>
@@ -617,7 +668,7 @@ export default class JeuSoiree extends Component {
             <Button id="Next_Question" onClick={this.NextMystereQuestion}><img id="Sablier" src={passer}></img><p id="text_lancerTimer">Question Suivante</p></Button>
             <Button id="Passer_Question" onClick={this.NbQuestionPasser}><img id="Sablier" src={passer}></img><p id="text_lancerTimer">Passer Question</p></Button>
             <div id="Timer" onClick={this.DeclencheTimer}><img id="Sablier" src={sablier}></img><p id="text_lancerTimer">Lancer Timer</p></div>
-            <div id="p_timer"><p id="PTimer_text"></p></div>
+            <div id="p_timer"><p id="PTimer_text"></p><div id="backgroundTimerReel"></div></div>
             <div id="QuestionSoiree"><p id="TextJaugeQuestionSoiree"></p></div>
         </div>
         );
