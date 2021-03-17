@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import mehdiBase from "../../static/images/mehdi_main_dans_le_dos_neutre.svg"
 import mehdiCarteNeutre from "../../static/images/mehdi_carte_main_neutre.svg"
+import mehdiEtonne from "../../static/images/mehdi_étonné.svg"
+import mehdiRigole from "../../static/images/mehdi_rigole.svg"
 import jauge_droite from "../../static/images/jauge_droite.svg"
 import jauge_gauche from "../../static/images/jauge_gauche.svg"
 import sablier from "../../static/images/sablier_eclaire.svg"
@@ -141,7 +143,32 @@ export default class JeuSoiree extends Component {
         
     }
 
+    componentDidMount() {
+        // anime background
+        var animDataBackground = bodymovin.loadAnimation ({
+            container: document.getElementById('backgroundJeuReel'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '../../static/images/backzer.json',
+            rendererSettings: {
+                preserveAspectRatio: 'none'
+            }
+        })
+
+
+        // anime Timer
+        var animDataTimer = bodymovin.loadAnimation ({
+            container: document.getElementById('backgroundTimerReel'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '../../static/images/9690-hour-glass-egg-timer.json'
+        })
+    }
+
     DeclencheQuestions() {
+        document.querySelector("#MehdiImg").src = `${mehdiCarteNeutre}`;
         if (this.state.point1 > 19 || this.state.point2 > 19) {
             document.querySelector("#MehdiImg").style.width = "0%";
             document.querySelector("#MehdiImg").style.height = "0%";
@@ -233,10 +260,17 @@ export default class JeuSoiree extends Component {
     }
 
     DeclencheQuestionVersionMystere() {
+        if (this.state.choix1 === 'plus') {
+            document.querySelector("#MehdiImg").src = `${mehdiEtonne}`;
+            document.querySelector("#TextJaugeQuestionSoiree").innerHTML = "+4 points";
+        } else {
+            document.querySelector("#MehdiImg").src = `${mehdiRigole}`;
+            document.querySelector("#TextJaugeQuestionSoiree").innerHTML = "-4 points";
+        }
+
         $("#Text_Soiree").addClass("tracking-in-expand");
             $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
-            document.querySelector("#TextJaugeQuestionSoiree").innerHTML = `${this.state.question}`;
-            document.querySelector("#Text_Soiree").innerHTML = `${this.state.explication}`;
+            document.querySelector("#Text_Soiree").innerHTML = `${this.state.question}`;
             document.querySelector("#Next_Question").style.display = "flex";
             setTimeout(function() {
                 $("#Text_Soiree").removeClass("tracking-in-expand");
@@ -276,6 +310,7 @@ export default class JeuSoiree extends Component {
     }
 
     DeclencheVoirRep() {
+        document.querySelector("#MehdiImg").src = `${mehdiBase}`;
         document.querySelector("#Passer_Question").style.display = "flex";
         $("#TextJaugeQuestionSoiree").addClass("swing-in-top-fwd");
         document.querySelector("#Voir_repSoiree").style.display = "none"; 
@@ -658,9 +693,9 @@ export default class JeuSoiree extends Component {
             <Button id="Lancer_Reprendre_Partie" onClick={this.CheckIntroOutro}><img src={play} id="playbutton" />Lancer/Reprendre Partie</Button>
             <div id="Mehdi_button">
                 <div id="cartepuristeblock" onClick={this.getQuestionDetailsGameVPuriste}><div id="CartePuriste">Carte Puriste</div></div>
-                <Button id="buttonSoireePointAttrib1" onClick={this.Point1Change}><img id="Sablier" src={plus_gauche}></img><p id="text_lancerTimer">+ 1 Equipe {this.state.equipe1}</p></Button>
+                <Button id="buttonSoireePointAttrib1" onClick={this.Point1Change}><img id="plus_ungauche" src={plus_gauche}></img><p id="text_lancerTimer">Equipe {this.state.equipe1}</p></Button>
                 <div id="BlockSepareMehdiImg"></div>
-                <Button id="buttonSoireePointAttrib2" onClick={this.Point2Change}><p id="text_lancerTimer">+ 1 Equipe {this.state.equipe2}</p><img id="Sablier" src={plus_droite}></img></Button>
+                <Button id="buttonSoireePointAttrib2" onClick={this.Point2Change}><p id="text_lancerTimer">Equipe {this.state.equipe2}</p><img id="plus_undroite" src={plus_droite}></img></Button>
                 <div id="cartemystereblock" onClick={this.getQuestionDetailsGameVMystere}><div id="CarteMystère">Carte Mystère</div></div>
             </div>
             <p id="Text_Soiree"></p>

@@ -8,19 +8,19 @@ import random
 
 # Create your views here.
 
-class QuestionView(generics.ListAPIView):
+class QuestionView(generics.CreateAPIView):
     queryset = Questions.objects.all()
     serializer_class = QuestionSerializer
 
 class DeleteQuestion(APIView):
     def get(self, request, format=None):
-        # Questions.objects.filter(id=126).delete()
-        ToModify = Questions.objects.filter(id=38)
+        # Questions.objects.filter(id=136).delete()
+        ToModify = Questions.objects.filter(id=43)
         Recep = ToModify[0]
-        Recep.réponse = "Thème : Rappeurs Français/US ou autres qui possèdent une marque de vêtements"
-        Recep.question = "Thème : Rappeurs Français/US ou autres qui possèdent une marque de vêtements"
-        Recep.save(update_fields=['question'])
-        Recep.save(update_fields=['réponse'])
+        Recep.QuestionType = 87
+        # Recep.question = "Thème : Rappeurs Français/US ou autres qui possèdent une marque de vêtements"
+        Recep.save(update_fields=['QuestionType'])
+        # Recep.save(update_fields=['réponse'])
         return Response(Recep.id, status=status.HTTP_200_OK)
 
         # ToModify = Questions.objects.filter(explication="Le Raptionaire : Le but est de trouver la signification de mot lié au rap")

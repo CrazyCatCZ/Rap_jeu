@@ -27,23 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     };
 
-    // anime background
-    var animDataBackground = bodymovin.loadAnimation ({
-        container: document.getElementById('backgroundJeuReel'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: '../../static/images/31633-play-button.json'
-    })
-
-    // anime Timer
-    var animDataTimer = bodymovin.loadAnimation ({
-        container: document.getElementById('backgroundTimerReel'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: '../../static/images/9690-hour-glass-egg-timer.json'
-    })
 });
 
 
