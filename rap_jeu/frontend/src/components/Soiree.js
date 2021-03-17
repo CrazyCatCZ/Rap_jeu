@@ -48,13 +48,13 @@ export default class CreateRoomPage extends Component {
 
   BeforeHandleRoomButtonPressed() {
     if (this.state.Equipe1 === "" || this.state.Equipe2 === "") {
-      document.querySelector("#texterrorMess").innerHTML = "Les noms d'équipes sont soient trop grands soit inexistants, fait un effort frrrr";
+      document.querySelector("#texterrorMess").innerHTML = "Invalide: Les Noms d'équipes ne doivent pas être trop grands";
       console.log('error');
       return;
     }
 
     if (this.state.Equipe1.length > 12 || this.state.Equipe2.length > 12) {
-      document.querySelector("#texterrorMess").innerHTML = "Les noms d'équipes sont soient trop grands soit inexistants, fait un effort frrrr";
+      document.querySelector("#texterrorMess").innerHTML = "Invalide: Les Noms d'équipes ne doivent pas être trop grands";
       console.log('error');
       return;
     }
@@ -127,14 +127,12 @@ export default class CreateRoomPage extends Component {
     return (
         <div id="SoireeCreateParent">
             <div id="Contain_text_buzzer_micro">
-              <img src={buzzer} id="buzzer"/>
               <div id="SoireeCreateText">
                 <h2>RAP JEU</h2>
                 <h2>MODE SOIREE</h2>
                 <p>Ce mode se joue à la manière d'un picolo:<br/> choisissez un animateur et formez deux équipes
                 </p>
               </div>
-              <img src={mircro} id="micro"/>
             </div>
             <FormControl>
                 <TextField required={true} type="text" onChange={this.Equipe1Change} />

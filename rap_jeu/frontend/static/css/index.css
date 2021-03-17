@@ -238,15 +238,15 @@ li, a {
 #SoireeCreateText {
     background-image: url(../images/lancer_carte_game.svg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: contain;
     background-position: center;
     font-family: "Raleway", sans-serif;
     font-weight: 500;
     font-size: 20px;
     color: rgb(0, 0, 0);
     padding: 10px;
-    width: 290px;
-    height: 380px;
+    width: 260px;
+    height: 353px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -266,45 +266,6 @@ li, a {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-@keyframes buzzer {
-  0% {
-    transform: translate(-50px, -125px) rotateZ(12deg);    
-  }
-
-  100% {
-    transform: translate(-50px, -109px) rotateZ(12deg);
-  }
-}
-
-#buzzer {
-  animation: buzzer 1.8s infinite;
-  animation-direction: alternate;
-  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.2));
-
-  width: 300px;
-  height: 150px;
-  transform: translate(220px, -119px);
-}
-
-@keyframes micro {
-  0% {
-    transform: translate(120px, 140px) rotateZ(-12deg);    
-  }
-
-  100% {
-    transform: translate(120px, 120px) rotateZ(-12deg);
-  }
-}
-
-#micro {
-  animation: micro 1.8s infinite;
-  animation-direction: alternate;
-  width: 300px;
-  height: 150px;
-  transform: translate(370px, 140px);
-  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.4));
 }
 
 /*  anime exit  */ 
@@ -468,6 +429,8 @@ li, a {
     align-content: center;
     -webkit-animation: swing-in-top-fwd 1.2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 	        animation: swing-in-top-fwd 1.2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    height: 100%;
+    width: 100%;
 }
 
 #Equi1 {
@@ -1720,3 +1683,35 @@ border-style: solid;
     transform: rotateZ(-20deg);
 }
 }
+
+/* Page 2 */
+
+@media only screen and (max-width: 600px) {
+
+  #SoireeCreateText {
+    background-image: url(../images/lancer_carte_game.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    width: 150px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+
+    
+    -webkit-animation: flip-in-diag-2-tl 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: flip-in-diag-2-tl 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+} 
