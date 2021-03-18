@@ -680,13 +680,14 @@ export default class JeuSoiree extends Component {
         return (
         <div id="JeuSoireeDivParent" class="puff-in-center">
             <div id="backgroundJeuReel"></div>
+            <div id="rebull"></div>
             <div id="backgroundEndReel"></div>
             <img id="MehdiImg" src={mehdiCarteNeutre}/>
             <div id="Jauge">
-                <div id="jauge_gauche">
+                <div id="jauge_gauche" preserveAspectRatio="none">
                     <p id="NomEquip1">{this.state.equipe1.toUpperCase()}<br/><p id="point1Soiree">{this.state.point1.toString()} POINTS</p></p>
                 </div>    
-                <div id="jauge_droite">
+                <div id="jauge_droite" preserveAspectRatio="none">
                     <p id="NomEquip2">{this.state.equipe2.toUpperCase()}<br/><p id="point2Soiree">{this.state.point2.toString()} POINTS</p></p>
                 </div>
             </div>
@@ -704,7 +705,7 @@ export default class JeuSoiree extends Component {
             <Button id="Passer_Question" onClick={this.NbQuestionPasser}><img id="Sablier" src={passer}></img><p id="text_lancerTimer">Passer Question</p></Button>
             <div id="Timer" onClick={this.DeclencheTimer}><img id="Sablier" src={sablier}></img><p id="text_lancerTimer">Lancer Timer</p></div>
             <div id="p_timer"><p id="PTimer_text"></p><div id="backgroundTimerReel"></div></div>
-            <div id="QuestionSoiree"><p id="TextJaugeQuestionSoiree"></p></div>
+            <div id="QuestionSoiree" preserveAspectRatio="none"><p id="TextJaugeQuestionSoiree"></p></div>
         </div>
         );
     }
