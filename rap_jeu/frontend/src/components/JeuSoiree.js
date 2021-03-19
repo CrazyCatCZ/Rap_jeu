@@ -705,7 +705,7 @@ export default class JeuSoiree extends Component {
             <Button id="Passer_Question" onClick={this.NbQuestionPasser}><img id="Sablier" src={passer}></img><p id="text_lancerTimer">Passer Question</p></Button>
             <div id="Timer" onClick={this.DeclencheTimer}><img id="Sablier" src={sablier}></img><p id="text_lancerTimer">Lancer Timer</p></div>
             <div id="p_timer"><p id="PTimer_text"></p><div id="backgroundTimerReel"></div></div>
-            <div id="QuestionSoiree" preserveAspectRatio="none"><p id="TextJaugeQuestionSoiree"></p></div>
+            <div id="QuestionSoiree"><p id="TextJaugeQuestionSoiree"></p></div>
         </div>
         );
     }

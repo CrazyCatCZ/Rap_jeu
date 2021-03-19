@@ -4,40 +4,38 @@
 	 y="0px" viewBox="0 0 1281 150" style="enable-background:new 0 0 1281 150;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#F6FD39;}
-	.st1{fill:url(#SVGID_1_);}
-	.st2{fill:url(#SVGID_2_);}
+	.st1{fill:#FFFF18;}
+	.st2{fill:url(#SVGID_1_);stroke:#EAFF2E;stroke-width:3;stroke-miterlimit:10;}
 </style>
 <g>
 	<title>barre du bas</title>
-	<polygon class="st0" points="1230.5,134.5 51.5,134.5 27,70 198,70 214,25 303,25 309,15 966,15 971,24 1060,24 1080.8,70 1255,70 
-			"/>
+	<polygon class="st0" points="1230.5,130 51.5,130 27,84.6 198,84.6 214,53 303,53 309,46 966,46 971,52.3 1060,52.3 1080.8,84.6 
+		1255,84.6 	"/>
+	<polygon class="st1" points="1247,91.5 1226,130.8 54,129.4 34,91.5 	"/>
 	
-		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="640.5" y1="78" x2="640.5" y2="134" gradientTransform="matrix(-1 0 0 1 1281 -2)">
-		<stop  offset="0" style="stop-color:#F3BA33"/>
-		<stop  offset="0.1" style="stop-color:#F4C13C"/>
-		<stop  offset="0.46" style="stop-color:#F7D758"/>
-		<stop  offset="0.77" style="stop-color:#F8E469"/>
-		<stop  offset="1" style="stop-color:#F9E96F"/>
-	</linearGradient>
-	<polygon class="st1" points="1247,76 1226,132 54,130 34,76 	"/>
-	
-		<radialGradient id="SVGID_2_" cx="640" cy="46" r="310.9638" gradientTransform="matrix(-1 0 0 1 1281 -2)" gradientUnits="userSpaceOnUse">
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-1186.3" y1="977.6" x2="-84.7" y2="977.6" gradientTransform="matrix(-1 0 0 1 5 -930)">
 		<stop  offset="0" style="stop-color:#8ABBDD"/>
-		<stop  offset="3.000000e-02" style="stop-color:#80AFDA"/>
-		<stop  offset="0.14" style="stop-color:#5E85CE"/>
-		<stop  offset="0.25" style="stop-color:#4161C4"/>
-		<stop  offset="0.37" style="stop-color:#2944BC"/>
-		<stop  offset="0.5" style="stop-color:#172DB6"/>
-		<stop  offset="0.64" style="stop-color:#0A1DB1"/>
-		<stop  offset="0.79" style="stop-color:#0214AF"/>
-		<stop  offset="1" style="stop-color:#0011AE"/>
-	</radialGradient>
-	<polygon class="st2" points="1080,70 202,70 217,27 306,27 311,18 966,18 970,27 1060,27 	"/>
+		<stop  offset="7.561795e-03" style="stop-color:#79A6D7"/>
+		<stop  offset="2.276616e-02" style="stop-color:#5B80CD"/>
+		<stop  offset="3.925910e-02" style="stop-color:#4161C4"/>
+		<stop  offset="5.702766e-02" style="stop-color:#2C47BD"/>
+		<stop  offset="7.658331e-02" style="stop-color:#1C33B7"/>
+		<stop  offset="9.883990e-02" style="stop-color:#1125B3"/>
+		<stop  offset="0.1261" style="stop-color:#0A1CB1"/>
+		<stop  offset="0.173" style="stop-color:#081AB0"/>
+		<stop  offset="0.506" style="stop-color:#0214AF"/>
+		<stop  offset="0.8722" style="stop-color:#0A1DB1"/>
+		<stop  offset="0.8976" style="stop-color:#0E22B2"/>
+		<stop  offset="0.9273" style="stop-color:#1930B6"/>
+		<stop  offset="0.9591" style="stop-color:#2C48BD"/>
+		<stop  offset="0.9857" style="stop-color:#4161C4"/>
+	</linearGradient>
+	<polygon class="st2" points="1191.3,88.8 89.7,88.8 108.5,20.7 220.2,20.7 226.4,6.4 1048.3,6.4 1053.3,20.7 1166.2,20.7 	"/>
 	
-		<image style="overflow:visible;enable-background:new    ;" width="1281" height="80" xlink:href="A7468EFF.png"  transform="matrix(-1 0 0 -1 1281 126)">
+		<image style="overflow:visible;enable-background:new    ;" width="1281" height="80" xlink:href="A7468EFF.png"  transform="matrix(-1 0 0 -0.8747 1281 137.8104)">
 	</image>
 	
-		<image style="overflow:visible;enable-background:new    ;" width="1250" height="79" xlink:href="A7468EFD.png"  transform="matrix(-1 0 0 -1 1265 165)">
+		<image style="overflow:visible;enable-background:new    ;" width="1250" height="79" xlink:href="A7468EFD.png"  transform="matrix(-1 0 0 -0.8747 1265 171.9245)">
 	</image>
 </g>
 </svg>
