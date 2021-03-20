@@ -27,6 +27,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     };
 
+    // Boomerang
+    if (window.innerWidth > 700) {
+        console.log("versionnormal");
+        var animDataBackground = bodymovin.loadAnimation ({
+            container: document.getElementById('Boomerang'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '../../static/images/blockboomerang.json',
+            rendererSettings: {
+                preserveAspectRatio: 'none'
+            }
+        })
+    } else {
+        console.log("versionmobile");
+        var animDataBackground = bodymovin.loadAnimation ({
+            container: document.getElementById('Boomerang'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '../../static/images/boomerangMobile.json',
+        })
+    }
 });
 
 

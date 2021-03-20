@@ -144,6 +144,7 @@ export default class JeuSoiree extends Component {
     }
 
     componentDidMount() {
+        document.querySelector("#Boomerang").style.display = "none";
         // anime background
         var animDataBackground = bodymovin.loadAnimation ({
             container: document.getElementById('backgroundJeuReel'),
@@ -691,7 +692,7 @@ export default class JeuSoiree extends Component {
                     <p id="NomEquip2">{this.state.equipe2.toUpperCase()}<br/><p id="point2Soiree">{this.state.point2.toString()} POINTS</p></p>
                 </div>
             </div>
-            <Button id="Lancer_Reprendre_Partie" onClick={this.CheckIntroOutro}><img src={play} id="playbutton" />Lancer/Reprendre Partie</Button>
+            <Button id="Lancer_Reprendre_Partie" onClick={this.CheckIntroOutro}><img src={play} id="playbutton" /></Button>
             <div id="Mehdi_button">
                 <div id="cartepuristeblock" onClick={this.getQuestionDetailsGameVPuriste}><div id="CartePuriste">Carte Puriste</div></div>
                 <Button id="buttonSoireePointAttrib1" onClick={this.Point1Change}><img id="plus_ungauche" src={plus_gauche}></img><p id="text_lancerTimer">Equipe {this.state.equipe1}</p></Button>
