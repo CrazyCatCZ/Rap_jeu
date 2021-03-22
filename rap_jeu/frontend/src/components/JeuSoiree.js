@@ -120,7 +120,7 @@ export default class JeuSoiree extends Component {
 
         setTimeout(
             function() {
-                document.querySelector("#Text_Soiree").innerHTML = `AUJOURD'HUI LES ${this.state.equipe1.toUpperCase()} AFFRONTES LES ${this.state.equipe2.toUpperCase()}`;
+                document.querySelector("#Text_Soiree").innerHTML = `AUJOURD'HUI L'EQUIPE '${this.state.equipe1.toUpperCase()}' AFFRONTE L'EQUIPE '${this.state.equipe2.toUpperCase()}'`;
             }
             .bind(this),
             3500
@@ -146,16 +146,31 @@ export default class JeuSoiree extends Component {
     componentDidMount() {
         document.querySelector("#Boomerang").style.display = "none";
         // anime background
-        var animDataBackground = bodymovin.loadAnimation ({
-            container: document.getElementById('backgroundJeuReel'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: '../../static/images/backzer.json',
-            rendererSettings: {
-                preserveAspectRatio: 'none'
-            }
-        })
+        if (window.innerWidth > 700) {
+            console.log("hoooooo");
+            var animDataBackground = bodymovin.loadAnimation ({
+                container: document.getElementById('backgroundJeuReel'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: '../../static/images/backzer.json',
+                rendererSettings: {
+                    preserveAspectRatio: 'none'
+                }
+            })
+        } else {
+            console.log('Vmob')
+            var animDataBackgroundzer = bodymovin.loadAnimation ({
+                container: document.getElementById('backgroundJeuReel'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: '../../static/images/backzer.json',
+                rendererSettings: {
+                    preserveAspectRatio: 'none'
+                }
+            })
+        }
 
 
         // anime Timer
@@ -695,9 +710,9 @@ export default class JeuSoiree extends Component {
             <Button id="Lancer_Reprendre_Partie" onClick={this.CheckIntroOutro}><img src={play} id="playbutton" /></Button>
             <div id="Mehdi_button">
                 <div id="cartepuristeblock" onClick={this.getQuestionDetailsGameVPuriste}><div id="CartePuriste">Carte Puriste</div></div>
-                <Button id="buttonSoireePointAttrib1" onClick={this.Point1Change}><img id="plus_ungauche" src={plus_gauche}></img><p id="text_lancerTimer">Equipe {this.state.equipe1}</p></Button>
+                <Button id="buttonSoireePointAttrib1" onClick={this.Point1Change}><img id="plus_ungauche" src={plus_gauche}></img><p id="text_lancerTimer"></p></Button>
                 <div id="BlockSepareMehdiImg"></div>
-                <Button id="buttonSoireePointAttrib2" onClick={this.Point2Change}><p id="text_lancerTimer">Equipe {this.state.equipe2}</p><img id="plus_undroite" src={plus_droite}></img></Button>
+                <Button id="buttonSoireePointAttrib2" onClick={this.Point2Change}><p id="text_lancerTimer"></p><img id="plus_undroite" src={plus_droite}></img></Button>
                 <div id="cartemystereblock" onClick={this.getQuestionDetailsGameVMystere}><div id="CarteMystère">Carte Mystère</div></div>
             </div>
             <p id="Text_Soiree"></p>

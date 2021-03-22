@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="barre_smartphone" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 435.2 99.8" style="enable-background:new 0 0 435.2 99.8;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#7FE0FF;}
+	.st1{clip-path:url(#SVGID_2_);}
+	.st2{clip-path:url(#SVGID_4_);}
+	.st3{fill:#15008D;}
+	.st4{fill:#FFFF18;}
+	.st5{fill:#F5DC2E;}
+	.st6{fill:#5669EA;}
+</style>
+<title>barre droite smartphone</title>
+<polygon class="st0" points="115.1,12.5 381,12.5 397,26 431,26.3 431,87 207,87 200,75 87,75.8 79,67.8 58,67.8 42,50.3 23,50.3 
+	-1,26.3 87,26.8 "/>
+<g>
+	<defs>
+		<polygon id="SVGID_1_" points="116.1,14.1 381,14.9 397.1,30 429,48.7 429,85.4 210,85.4 202,74.2 89,73.4 82,66.2 60,65.4 
+			45,50.3 42.1,47.6 92.3,28.4 		"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<g class="st1">
+		<g>
+			<defs>
+				<rect id="SVGID_3_" x="37.1" y="10.1" width="396.9" height="79.3"/>
+			</defs>
+			<clipPath id="SVGID_4_">
+				<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+			</clipPath>
+			<g class="st2">
+				
+					<image style="overflow:visible;enable-background:new    ;" width="828" height="208" xlink:href="D93D88F9.png"  transform="matrix(0.48 0 0 0.3834 36.74 9.6981)">
+				</image>
+			</g>
+		</g>
+	</g>
+</g>
+<polygon class="st3" points="96.1,29.2 118.1,18.1 378.1,18.9 392.1,28.4 380,16.5 117.1,15.7 "/>
+<polygon class="st4" points="3,27.9 23,47.9 429,48.7 429,28.7 "/>
+<polygon class="st5" points="21,43.1 14,31.1 423,33.5 427,30.3 8,29.5 "/>
+<polygon class="st3" points="62,63.8 55,51.9 424,53.4 425,80.6 426,51.1 49,50.3 "/>
+<polygon class="st6" points="84,64.6 90,71.8 203,71.8 211,83.8 399,84.6 213,82.2 205,70.2 91,70.2 "/>
+</svg>

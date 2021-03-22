@@ -48,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
             loop: true,
             autoplay: true,
             path: '../../static/images/boomerangMobile.json',
+            rendererSettings: {
+                preserveAspectRatio: 'none'
+            }
         })
     }
 });
