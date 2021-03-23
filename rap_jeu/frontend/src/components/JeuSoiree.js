@@ -120,7 +120,7 @@ export default class JeuSoiree extends Component {
 
         setTimeout(
             function() {
-                document.querySelector("#Text_Soiree").innerHTML = `AUJOURD'HUI L'EQUIPE '${this.state.equipe1.toUpperCase()}' AFFRONTE L'EQUIPE '${this.state.equipe2.toUpperCase()}'`;
+                document.querySelector("#Text_Soiree").innerHTML = `AUJOURD'HUI L'ÉQUIPE '${this.state.equipe1.toUpperCase()}' AFFRONTE L'ÉQUIPE '${this.state.equipe2.toUpperCase()}'`;
             }
             .bind(this),
             3500
@@ -130,7 +130,7 @@ export default class JeuSoiree extends Component {
             document.querySelector("#MehdiImg").src = `${mehdiCarteNeutre}`;
         }, 7000);
         setTimeout(function() {
-            document.querySelector("#Text_Soiree").innerHTML = "C'EST PARTI PREMIERE QUESTION !"; 
+            document.querySelector("#Text_Soiree").innerHTML = "LA PREMIÈRE ÉQUIPE À 20 POINTS L'EMPORTE !"; 
         }, 7000);
 
         setTimeout(
@@ -716,10 +716,10 @@ export default class JeuSoiree extends Component {
                 <div id="cartemystereblock" onClick={this.getQuestionDetailsGameVMystere}><div id="CarteMystère">Carte Mystère</div></div>
             </div>
             <p id="Text_Soiree"></p>
-            <Button id="Voir_repSoiree" onClick={this.DeclencheVoirRep}><img id="Sablier" src={question}></img><p id="text_lancerTimer">Afficher Réponse</p></Button>
-            <Button id="Next_Question" onClick={this.NextMystereQuestion}><img id="Sablier" src={passer}></img><p id="text_lancerTimer">Question Suivante</p></Button>
-            <Button id="Passer_Question" onClick={this.NbQuestionPasser}><img id="Sablier" src={passer}></img><p id="text_lancerTimer">Passer Question</p></Button>
-            <div id="Timer" onClick={this.DeclencheTimer}><img id="Sablier" src={sablier}></img><p id="text_lancerTimer">Lancer Timer</p></div>
+            <Button id="Voir_repSoiree" onClick={this.DeclencheVoirRep}></Button>
+            <Button id="Next_Question" onClick={this.NextMystereQuestion}></Button>
+            <Button id="Passer_Question" onClick={this.NbQuestionPasser}></Button>
+            <div id="Timer" onClick={this.DeclencheTimer}></div>
             <div id="p_timer"><p id="PTimer_text"></p><div id="backgroundTimerReel"></div></div>
             <div id="QuestionSoiree"><p id="TextJaugeQuestionSoiree"></p></div>
         </div>
