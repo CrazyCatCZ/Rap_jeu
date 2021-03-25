@@ -48,6 +48,86 @@ footer {
     background: #fbff23;
     grid-area:footer;
     min-height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#redFooter {
+  height: 45px;
+}
+
+#MurBrique {
+  background-image: url(../images/fond_contact.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+#Contacts {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 80px;
+  color: #ffffff;
+}
+
+#WebdevGraphiste {
+  margin-top: 86px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+  color: #ffffff;
+  width: 75%
+}
+
+#BarinstaGmail {
+  margin-top: 86px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 40px;
+  color: #ffffff;
+  width: 80%
+}
+
+#gmailinsta {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%;
+}
+
+#insta {
+  background-image: url(../images/instagram.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: 80px;
+  width: 80px;
+}
+
+#gmail {
+  background-image: url(../images/gmail.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: 80px;
+  width: 80px;
 }
 
 
@@ -236,10 +316,6 @@ li, a {
 /* */
 
 #SoireeCreateText {
-    background-image: url(../images/lancer_carte_game.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
     font-family: "Raleway", sans-serif;
     font-weight: 500;
     font-size: 20px;
@@ -253,12 +329,26 @@ li, a {
     text-align: center;
     align-items: center;
     margin-bottom: 20px;
-    border-radius: 15px;
-    background-color: rgb(255, 255, 255);
+    background-color: none;
 
     
     -webkit-animation: flip-in-diag-2-tl 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
             animation: flip-in-diag-2-tl 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+#blockRed {
+  background-image: url(../images/blockRed.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    height:200px;
+    width:300px;
+}
+
+#basblockRed {
+  margin-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 #Contain_text_buzzer_micro {
@@ -1578,16 +1668,12 @@ li, a {
 @media only screen and (max-width: 600px) {
 
   #SoireeCreateText {
-    background-image: url(../images/lancer_carte_game.svg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center;
     font-family: "Raleway", sans-serif;
     font-weight: 500;
     font-size: 13px;
     color: rgb(0, 0, 0);
     padding: 10px;
-    width: 150px;
+    width: 300px;
     height: 200px;
     display: flex;
     justify-content: center;
@@ -1595,8 +1681,7 @@ li, a {
     text-align: center;
     align-items: center;
     margin-bottom: 20px;
-    border-radius: 15px;
-    background-color: rgb(255, 255, 255);
+    background-color: none;
 
     
     -webkit-animation: flip-in-diag-2-tl 1.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -1750,6 +1835,12 @@ li, a {
   }
 
 @media only screen and (max-width: 707px) {
+
+  #playbutton {
+    width:140px;
+    height:150px;
+    padding-right: 5px;
+  }
 
   #Text_Soiree {
     font-family: "Raleway", sans-serif;
@@ -2573,3 +2664,255 @@ right: 10.2px;
 }
 
 }
+
+@media only screen and (max-width: 943px) {
+
+#Contacts {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 60px;
+  color: #ffffff;
+}
+
+#WebdevGraphiste {
+  margin-top: 75px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: #ffffff;
+  width: 75%
+}
+
+#BarinstaGmail {
+  margin-top: 86px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: #ffffff;
+  width: 80%
+}
+
+#gmailinsta {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%;
+}
+
+#insta {
+  background-image: url(../images/instagram.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: 80px;
+  width: 80px;
+}
+
+#gmail {
+  background-image: url(../images/gmail.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: 80px;
+  width: 80px;
+}
+
+}
+
+@media only screen and (max-width: 668px) {
+
+  #Contacts {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    color: #ffffff;
+  }
+  
+  #WebdevGraphiste {
+    margin-top: 75px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: #ffffff;
+    width: 75%
+  }
+  
+  #BarinstaGmail {
+    margin-top: 86px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: #ffffff;
+    width: 80%
+  }
+  
+  #gmailinsta {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 35%;
+  }
+  
+  #insta {
+    background-image: url(../images/instagram.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    height: 60px;
+    width: 60px;
+  }
+  
+  #gmail {
+    background-image: url(../images/gmail.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    height: 60px;
+    width: 60px;
+  }
+  
+  }
+
+  @media only screen and (max-width: 520px) {
+
+    #Contacts {
+      font-family: "Raleway", sans-serif;
+      font-weight: 500;
+      font-size: 40px;
+      color: #ffffff;
+    }
+    
+    #WebdevGraphiste {
+      margin-top: 75px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "Raleway", sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      color: #ffffff;
+      width: 75%
+    }
+    
+    #BarinstaGmail {
+      margin-top: 86px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "Raleway", sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      color: #ffffff;
+      width: 80%
+    }
+    
+    #gmailinsta {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 40%;
+    }
+    
+    #insta {
+      background-image: url(../images/instagram.svg);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position: center;
+      height: 40px;
+      width: 40px;
+    }
+    
+    #gmail {
+      background-image: url(../images/gmail.svg);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position: center;
+      height: 40px;
+      width: 40px;
+    }
+    
+    }
+
+    @media only screen and (max-width: 347px) {
+
+      #Contacts {
+        font-family: "Raleway", sans-serif;
+        font-weight: 500;
+        font-size: 40px;
+        color: #ffffff;
+      }
+      
+      #WebdevGraphiste {
+        margin-top: 75px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "Raleway", sans-serif;
+        font-weight: 500;
+        font-size: 12.5px;
+        color: #ffffff;
+        width: 75%
+      }
+      
+      #BarinstaGmail {
+        margin-top: 86px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "Raleway", sans-serif;
+        font-weight: 500;
+        font-size: 12.5px;
+        color: #ffffff;
+        width: 80%
+      }
+      
+      #gmailinsta {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 40%;
+      }
+      
+      #insta {
+        background-image: url(../images/instagram.svg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+        height: 40px;
+        width: 40px;
+      }
+      
+      #gmail {
+        background-image: url(../images/gmail.svg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+        height: 40px;
+        width: 40px;
+      }
+      
+      }

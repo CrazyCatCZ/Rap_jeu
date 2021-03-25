@@ -23,11 +23,11 @@ class DeleteQuestion(APIView):
         # Recep.save(update_fields=['réponse'])
         # return Response(Recep.id, status=status.HTTP_200_OK)
 
-        # Tomodify = Questions.objects.filter(explication="La rechercher Genius: d'après un extrait de parole, trouvez le morceau correspondant")
+        Tomodify = Questions.objects.filter(question="Lors de leur concert à Paris, combiens de fois Jay-Z et Kanye West ont interprétés le Niggas in Paris")
 
-        # for i in Tomodify:
-        #     i.explication = "La recherche Genius: d'après un extrait de parole, trouvez le morceau correspondant"
-        #     i.save(update_fields=['explication'])
+        for i in Tomodify:
+            i.question = "Lors de leur concert à Paris, combiens de fois Jay-Z et Kanye West ont interprétés le titre Niggas in Paris"
+            i.save(update_fields=['question'])
 
         # ToModify = Questions.objects.filter(explication="Le Raptionaire : Le but est de trouver la signification de mot lié au rap")
         # for Q in ToModify:
