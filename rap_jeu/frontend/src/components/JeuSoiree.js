@@ -120,7 +120,7 @@ export default class JeuSoiree extends Component {
 
         setTimeout(
             function() {
-                document.querySelector("#Text_Soiree").innerHTML = `AUJOURD'HUI L'ÉQUIPE '${this.state.equipe1.toUpperCase()}' AFFRONTE L'ÉQUIPE '${this.state.equipe2.toUpperCase()}'`;
+                document.querySelector("#Text_Soiree").innerHTML = `AUJOURD'HUI L'ÉQUIPE  "${this.state.equipe1.toUpperCase()}"  AFFRONTE L'ÉQUIPE  "${this.state.equipe2.toUpperCase()}"`;
             }
             .bind(this),
             3500
@@ -138,7 +138,7 @@ export default class JeuSoiree extends Component {
                 this.DeclencheQuestions();
             }
             .bind(this),
-            9500
+            10500
         );
         
     }
@@ -146,7 +146,7 @@ export default class JeuSoiree extends Component {
     componentDidMount() {
         document.querySelector("#Boomerang").style.display = "none";
         // anime background
-        if (window.innerWidth > 700) {
+        if (window.innerWidth > 600) {
             console.log("hoooooo");
             var animDataBackground = bodymovin.loadAnimation ({
                 container: document.getElementById('backgroundJeuReel'),
@@ -165,7 +165,7 @@ export default class JeuSoiree extends Component {
                 renderer: 'svg',
                 loop: true,
                 autoplay: true,
-                path: '../../static/images/backzer.json',
+                path: '../../static/images/backzer_smartphone.json',
                 rendererSettings: {
                     preserveAspectRatio: 'none'
                 }

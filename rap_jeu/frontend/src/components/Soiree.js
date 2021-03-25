@@ -129,7 +129,6 @@ export default class CreateRoomPage extends Component {
             <div id="Contain_text_buzzer_micro">
               <div id="SoireeCreateText">
                 <h2>RAP JEU</h2>
-                <h2>MODE SOIREE</h2>
                 <p>Ce mode se joue à la manière d'un picolo:<br/> choisissez un animateur et formez deux équipes
                 </p>
               </div>

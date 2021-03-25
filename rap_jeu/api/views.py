@@ -14,7 +14,7 @@ class QuestionView(generics.ListAPIView):
 
 class DeleteQuestion(APIView):
     def get(self, request, format=None):
-        # Questions.objects.filter(id=188).delete()
+        Questions.objects.filter(id=231).delete()
         # ToModify = Questions.objects.filter(id=43)
         # Recep = ToModify[0]
         # Recep.QuestionType = 87
@@ -23,11 +23,11 @@ class DeleteQuestion(APIView):
         # Recep.save(update_fields=['réponse'])
         # return Response(Recep.id, status=status.HTTP_200_OK)
 
-        Tomodify = Questions.objects.filter(explication="Rap Genius ou Rap Gênant: Cette Punchline existe-t-elle ou pas ? (Si l'équipe qui prend la main répond mal les point reviennent à l'autre équipe)")
+        # Tomodify = Questions.objects.filter(explication="La rechercher Genius: d'après un extrait de parole, trouvez le morceau correspondant")
 
-        for i in Tomodify:
-            i.explication = "Rap Genius ou Rap Gênant: Cette Punchline existe-t-elle ou pas ? (Si l'équipe qui prend la main répond mal le point revient à l'autre équipe)"
-            i.save(update_fields=['explication'])
+        # for i in Tomodify:
+        #     i.explication = "La recherche Genius: d'après un extrait de parole, trouvez le morceau correspondant"
+        #     i.save(update_fields=['explication'])
 
         # ToModify = Questions.objects.filter(explication="Le Raptionaire : Le but est de trouver la signification de mot lié au rap")
         # for Q in ToModify:
