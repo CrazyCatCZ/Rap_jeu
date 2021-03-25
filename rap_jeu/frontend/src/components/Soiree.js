@@ -101,7 +101,6 @@ export default class CreateRoomPage extends Component {
   }
 
   ReprendrePartie() {
-
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

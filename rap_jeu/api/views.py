@@ -14,7 +14,7 @@ class QuestionView(generics.ListAPIView):
 
 class DeleteQuestion(APIView):
     def get(self, request, format=None):
-        Questions.objects.filter(id=231).delete()
+        # Questions.objects.filter(id=231).delete()
         # ToModify = Questions.objects.filter(id=43)
         # Recep = ToModify[0]
         # Recep.QuestionType = 87
@@ -23,10 +23,10 @@ class DeleteQuestion(APIView):
         # Recep.save(update_fields=['réponse'])
         # return Response(Recep.id, status=status.HTTP_200_OK)
 
-        Tomodify = Questions.objects.filter(question="Lors de leur concert à Paris, combiens de fois Jay-Z et Kanye West ont interprétés le Niggas in Paris")
+        Tomodify = Questions.objects.filter(question="Si je sors le AK il feront tous caca")
 
         for i in Tomodify:
-            i.question = "Lors de leur concert à Paris, combiens de fois Jay-Z et Kanye West ont interprétés le titre Niggas in Paris"
+            i.question = "Si je sors le AK ils feront tous caca"
             i.save(update_fields=['question'])
 
         # ToModify = Questions.objects.filter(explication="Le Raptionaire : Le but est de trouver la signification de mot lié au rap")
@@ -137,9 +137,13 @@ class GetQuestions(APIView):
         QuestionsRequest = Questions.objects.all()
         limRandom = len(QuestionsRequest)
         MysteryNum = [66, 77, 55, 22, 87]
+        EviteNum = [44, 126, 136, 188, 211, 231]
 
-        while True:   
-            RandomNumQuestion = random.randint(24, limRandom)
+        while True:
+            while True:
+                RandomNumQuestion = random.randint(24, limRandom)
+                if RandomNumQuestion not in EviteNum:
+                    break
             question = Questions.objects.filter(id=RandomNumQuestion).exclude(QuestionType__in=MysteryNum)
             if len(question) > 0 and question[0].id not in RecepQuestionFait:
                 break
@@ -162,10 +166,14 @@ class GetPuriste(APIView):
         for Q in QuestionsRequest:
             Box.append(Q.id)
         limRandom = len(Box) - 1
+        EviteNum = [44, 126, 136, 188, 211, 231]
             
 
-        while True:   
-            RandomNumQuestion = random.randint(0, limRandom)
+        while True:
+            while True:
+                RandomNumQuestion = random.randint(0, limRandom)
+                if RandomNumQuestion not in EviteNum:
+                    break 
             question = Questions.objects.filter(id=Box[RandomNumQuestion]).exclude(id__in=RecepQuestionFait)
             if len(question) > 0:
                 break
@@ -188,10 +196,14 @@ class GetMystere(APIView):
         for Q in QuestionsRequest:
             Box.append(Q.id)
         limRandom = len(Box) - 1
+        EviteNum = [44, 126, 136, 188, 211, 231]
             
 
-        while True:   
-            RandomNumQuestion = random.randint(0, limRandom)
+        while True: 
+            while True:
+                RandomNumQuestion = random.randint(0, limRandom)
+                if RandomNumQuestion not in EviteNum:
+                    break  
             question = Questions.objects.filter(id=Box[RandomNumQuestion]).exclude(id__in=RecepQuestionFait)
             if len(question) > 0:
                 break
@@ -214,10 +226,14 @@ class GetEnchere(APIView):
         for Q in QuestionsRequest:
             Box.append(Q.id)
         limRandom = len(Box) - 1
+        EviteNum = [44, 126, 136, 188, 211, 231]
             
 
-        while True:   
-            RandomNumQuestion = random.randint(0, limRandom)
+        while True:
+            while True:
+                RandomNumQuestion = random.randint(0, limRandom)
+                if RandomNumQuestion not in EviteNum:
+                    break    
             question = Questions.objects.filter(id=Box[RandomNumQuestion]).exclude(id__in=RecepQuestionFait)
             if len(question) > 0:
                 break
@@ -240,10 +256,14 @@ class GetRolandGamos(APIView):
         for Q in QuestionsRequest:
             Box.append(Q.id)
         limRandom = len(Box) - 1
+        EviteNum = [44, 126, 136, 188, 211, 231]
             
 
-        while True:   
-            RandomNumQuestion = random.randint(0, limRandom)
+        while True:
+            while True:
+                RandomNumQuestion = random.randint(0, limRandom)
+                if RandomNumQuestion not in EviteNum:
+                    break  
             question = Questions.objects.filter(id=Box[RandomNumQuestion]).exclude(id__in=RecepQuestionFait)
             if len(question) > 0:
                 break

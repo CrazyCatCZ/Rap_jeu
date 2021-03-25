@@ -75,9 +75,12 @@ export default class JeuSoiree extends Component {
         this.getQuestionDetailsGameEnchere = this.getQuestionDetailsGameEnchere.bind(this);
         this.NbQuestionPasser = this.NbQuestionPasser.bind(this);
         this.getQuestionDetailsGameRolandGamos = this.getQuestionDetailsGameRolandGamos.bind(this);
+        this.playorpause = this.playorpause.bind(this);
+        this.Preplayorpause = this.Preplayorpause.bind(this);
     }
 
     CheckIntroOutro() {
+        document.querySelector("#Reprendre_Partie").style.display = "none";
         document.querySelector("#Lancer_Reprendre_Partie").style.display = "none";
         document.querySelector("#Text_Soiree").style.display = "block";
         document.querySelector("#Mehdi_button").style.display = "flex";
@@ -143,6 +146,7 @@ export default class JeuSoiree extends Component {
         
     }
 
+
     componentDidMount() {
         document.querySelector("#Boomerang").style.display = "none";
         // anime background
@@ -172,6 +176,7 @@ export default class JeuSoiree extends Component {
             })
         }
 
+        this.Preplayorpause();
 
         // anime Timer
         var animDataTimer = bodymovin.loadAnimation ({
@@ -552,8 +557,32 @@ export default class JeuSoiree extends Component {
                 point1: data.pointA,
                 point2: data.pointB,
                 NbQuestion: data.nbQuestion,
-            })
-        });
+            }, () => console.log("..")
+            );
+        }); 
+    }
+
+    Preplayorpause() {
+        fetch('/api/get-room' + '?code=' + this.roomCode).then((response) => 
+        response.json()
+        ).then((data) => {
+            this.setState({
+                equipe1: data.equipeA,
+                equipe2: data.equipeB,
+                point1: data.pointA,
+                point2: data.pointB,
+                NbQuestion: data.nbQuestion,
+            }, () => this.playorpause()
+            );
+        }); 
+    }
+
+    playorpause() {
+        if (this.state.NbQuestion > 0) {
+            document.querySelector("#Lancer_Reprendre_Partie").style.display = "block";
+        } else {
+            document.querySelector("#Lancer_Reprendre_Partie").style.display = "block";
+        }
     }
 
     getQuestionDetailsGame() {
@@ -707,6 +736,7 @@ export default class JeuSoiree extends Component {
                     <p id="NomEquip2">{this.state.equipe2.toUpperCase()}<br/><p id="point2Soiree">{this.state.point2.toString()} POINTS</p></p>
                 </div>
             </div>
+            <div id="Reprendre_Partie" onClick={this.CheckIntroOutro}></div>
             <Button id="Lancer_Reprendre_Partie" onClick={this.CheckIntroOutro}><img src={play} id="playbutton" /></Button>
             <div id="Mehdi_button">
                 <div id="cartepuristeblock" onClick={this.getQuestionDetailsGameVPuriste}><div id="CartePuriste">Carte Puriste</div></div>

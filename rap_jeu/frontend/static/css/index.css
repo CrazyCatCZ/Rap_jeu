@@ -53,10 +53,20 @@ footer {
     justify-content: center;
     align-items: center;
     align-content: center;
+
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    color: #ffffff;
 }
 
 #redFooter {
-  height: 45px;
+  background-image: url(../images/logo_kitsune.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: 48px;
+  width: 55px;
+  margin-left: 10px;
 }
 
 #MurBrique {
@@ -1117,13 +1127,19 @@ li, a {
     height: 150px;
     font-weight: 500;
     font-size: 22px;
-    display: flex;
+    display: none;
     border-radius: 30px;
     align-content: row;
 
     -webkit-animation: pulsate-bck 0.5s ease-in-out infinite both;
 	        animation: pulsate-bck 0.5s ease-in-out infinite both;
 } 
+
+#Reprendre_Partie {
+  width: 120px;
+  height: 150px;
+  display: none;
+}
 
 #QuestionSoiree {
     background-image: url(../images/jauge_question_rotate.svg);
@@ -2513,8 +2529,7 @@ li, a {
   #BlockSepareMehdiImg {
     width: 150px;
     height: 110px;
-  }
-  
+  }  
 }
 
 @media only screen and (max-width: 354px) {
@@ -2916,3 +2931,28 @@ right: 10.2px;
       }
       
       }
+  
+@media only screen and (max-width: 325px) {
+  #p_timer {
+    background: rgb(255, 255, 255);
+    color: rgb(6, 4, 78);
+    font-family: "Raleway", sans-serif;
+    box-shadow: 0px 3px rgb(3, 33, 97);
+    font-size: 18px;
+    display: none;
+    padding: 5px;
+    align-items: center;
+    border-color: rgb(5, 16, 116);
+    border-width: 2px;
+    align-content: row;
+    border-radius: 30px;
+    border-style: solid;
+    transition: box-shadow 0.4s; 
+    max-width: 200px;
+    padding: 10px;
+
+    height: 45px;
+
+    animation: swing-in-top-fwd 0.7s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+  }
+}
