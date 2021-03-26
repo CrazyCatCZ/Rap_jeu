@@ -11,7 +11,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = bool(os.getenv('DEBUG_VALUE'))
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'test-rap-jeu.herokuapp.com',
+    'rap-jeu.herokuapp.com',
 ]
 
 # Application definition
