@@ -117,7 +117,7 @@ export default class JeuSoiree extends Component {
 
     Intro() {
         
-        document.querySelector("#Text_Soiree").innerHTML = "BIENVENU DANS RAP JEU !";
+        document.querySelector("#Text_Soiree").innerHTML = "BIENVENUE DANS RAP JEU !";
         document.querySelector("#backgroundEndReel").style.width = "0%";
         document.querySelector("#backgroundEndReel").style.height = "0%";
 
